@@ -573,26 +573,38 @@
     box-shadow: none;
 }
 
-/* -----------------------------------------
-   TOOL CATEGORY
-   ----------------------------------------- */
-
-#tools .card h3 {
-    position: relative;
-    background: white;
-    margin: 0;
-    padding: 25px 28px 12px;
+/* TOOL CATEGORY */
+.tool-category {
+    background: #ffffff;
     border: 1px solid #e3e8ee;
-    border-bottom: none;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* CATEGORY HOVER */
+.tool-category:hover {
+    transform: translateY(-4px);
+    border-color: #9edede;
+    box-shadow: 0 14px 30px rgba(23, 43, 77, 0.10);
+}
+
+/* CATEGORY HEADING */
+.tool-category h3 {
+    position: relative;
+    margin: 0;
+    padding: 24px 28px 18px;
     color: #172b4d;
     font-size: 17px;
     line-height: 1.4;
+    background: #ffffff;
 }
 
-/* Teal accent */
-
-#tools .card h3::before {
+/* TEAL ACCENT */
+.tool-category h3::before {
     content: "";
     position: absolute;
     left: 0;
@@ -603,55 +615,15 @@
     border-radius: 15px 0 0 0;
 }
 
-/* Category numbers */
-
-#tools .card h3:nth-of-type(1)::after {
-    content: "01";
-}
-
-#tools .card h3:nth-of-type(2)::after {
-    content: "02";
-}
-
-#tools .card h3:nth-of-type(3)::after {
-    content: "03";
-}
-
-#tools .card h3:nth-of-type(4)::after {
-    content: "04";
-}
-
-#tools .card h3::after {
-    position: absolute;
-    right: 22px;
-    top: 24px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #b5c0ca;
-    letter-spacing: 1px;
-}
-
-
-/* -----------------------------------------
-   TOOL LIST
-   ----------------------------------------- */
-
+/* TOOL LIST */
 .tool-list {
     list-style: none;
-    padding: 12px 28px 25px !important;
+    padding: 8px 28px 26px !important;
     margin: 0 !important;
-    background: white;
-    border: 1px solid #e3e8ee;
-    border-top: none;
-    border-radius: 0 0 15px 15px;
-    min-height: 85px;
+    background: #ffffff;
 }
 
-
-/* -----------------------------------------
-   INDIVIDUAL TOOLS
-   ----------------------------------------- */
-
+/* INDIVIDUAL TOOLS */
 .tool-list li {
     display: inline-flex;
     align-items: center;
@@ -659,63 +631,70 @@
     color: #34495e;
     border: 1px solid #dfe6eb;
     border-radius: 8px;
-    padding: 8px 13px;
-    margin: 0 6px 7px 0;
+    padding: 9px 14px;
+    margin: 0 7px 8px 0;
     font-size: 13px;
     font-weight: 600;
 
+    transform: scale(1);
+    transform-origin: center;
+
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-
-/* Tool check mark */
-
+/* CHECK MARK */
 .tool-list li::before {
     content: "✓";
     color: #00a6a6;
     font-size: 11px;
     font-weight: bold;
     margin-right: 7px;
+    transition: transform 0.35s ease;
 }
 
 
-/* Tool hover animation */
+/* =========================================
+   HOVER EFFECT
+   ========================================= */
 
-.tool-list li:hover {
+/*
+   When the user hovers anywhere over the
+   category, enlarge all the tools inside it.
+*/
+
+.tool-category:hover .tool-list li {
+    transform: scale(1.12);
     background: #e8f7f7;
     color: #087f7f;
     border-color: #9edede;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 12px rgba(0, 166, 166, 0.12);
+    box-shadow: 0 7px 16px rgba(0, 166, 166, 0.15);
+}
+
+.tool-category:hover .tool-list li::before {
+    transform: scale(1.15);
 }
 
 
-/* -----------------------------------------
-   CATEGORY HOVER
-   ----------------------------------------- */
+/* Slightly stronger effect when the
+   mouse is directly over an individual tool */
 
-#tools .card h3 {
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-#tools .card h3:hover {
-    transform: translateY(-2px);
-    border-color: #c9dfe2;
-    box-shadow: 0 8px 20px rgba(23, 43, 77, 0.06);
+.tool-category .tool-list li:hover {
+    transform: scale(1.18);
+    background: #dff4f4;
+    color: #087f7f;
+    border-color: #79caca;
+    box-shadow: 0 10px 20px rgba(0, 166, 166, 0.20);
 }
 
 
-/* -----------------------------------------
-   TABLET
-   ----------------------------------------- */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 
 @media (max-width: 800px) {
 
@@ -723,13 +702,8 @@
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
 }
 
-
-/* -----------------------------------------
-   MOBILE
-   ----------------------------------------- */
 
 @media (max-width: 500px) {
 
@@ -737,13 +711,13 @@
         gap: 16px;
     }
 
-    #tools .card h3 {
-        padding: 22px 23px 10px;
+    .tool-category h3 {
+        padding: 21px 23px 15px;
         font-size: 16px;
     }
 
     .tool-list {
-        padding: 10px 23px 20px !important;
+        padding: 8px 23px 21px !important;
     }
 
     .tool-list li {
@@ -751,6 +725,13 @@
         padding: 7px 10px;
     }
 
+    .tool-category:hover .tool-list li {
+        transform: scale(1.07);
+    }
+
+    .tool-category .tool-list li:hover {
+        transform: scale(1.10);
+    }
 }
 
 
@@ -1471,30 +1452,42 @@
 
     <div class="card">
 
-        <h3>Technical Documentation & Authoring</h3>
-        <ul class="tool-list">
-            <li>MadCap Flare</li>
-            <li>MadCap IXIA CCMS</li>
-        </ul>
+        <!-- Technical Documentation -->
+        <div class="tool-category">
+            <h3>Technical Documentation &amp; Authoring</h3>
+            <ul class="tool-list">
+                <li>MadCap Flare</li>
+                <li>MadCap IXIA CCMS</li>
+            </ul>
+        </div>
 
-        <h3>Project & Collaboration</h3>
-        <ul class="tool-list">
-            <li>Atlassian Jira</li>
-            <li>Atlassian Confluence</li>
-        </ul>
+        <!-- Project & Collaboration -->
+        <div class="tool-category">
+            <h3>Project &amp; Collaboration</h3>
+            <ul class="tool-list">
+                <li>Atlassian Jira</li>
+                <li>Atlassian Confluence</li>
+            </ul>
+        </div>
 
-        <h3>AI & Content Productivity</h3>
-        <ul class="tool-list">
-            <li>Microsoft Copilot</li>
-            <li>ChatGPT</li>
-        </ul>
+        <!-- AI & Content Productivity -->
+        <div class="tool-category">
+            <h3>AI &amp; Content Productivity</h3>
+            <ul class="tool-list">
+                <li>Microsoft Copilot</li>
+                <li>ChatGPT</li>
+            </ul>
+        </div>
 
-        <h3>Microsoft Office & Productivity</h3>
-        <ul class="tool-list">
-            <li>Microsoft Word</li>
-            <li>Microsoft PowerPoint</li>
-            <li>Microsoft Excel</li>
-        </ul>
+        <!-- Microsoft Office -->
+        <div class="tool-category">
+            <h3>Microsoft Office</h3>
+            <ul class="tool-list">
+                <li>Microsoft Word</li>
+                <li>Microsoft PowerPoint</li>
+                <li>Microsoft Excel</li>
+            </ul>
+        </div>
 
     </div>
 </section>
