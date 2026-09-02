@@ -116,17 +116,53 @@
         }
 
         .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 
-        .skill {
-            background: #e8eef7;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+.skill-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #dfe5ec;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.skill-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.skill-card h3 {
+    color: #172b4d;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: #52606d;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .skills {
+        grid-template-columns: 1fr;
+    }
+}
 
         footer {
             background: #172b4d;
@@ -251,23 +287,62 @@
 <section id="skills">
     <h2>Technical Writing Skills</h2>
 
-    <div class="card">
-        <div class="skills">
-            <span class="skill">Technical Documentation</span>
-            <span class="skill">DITA</span>
-            <span class="skill">Content Strategy</span>
-            <span class="skill">Cross-Functional Collaboration</span>
-            <span class="skill">User Guides</span>
-            <span class="skill">Administrator Guides</span>
-            <span class="skill">Online Helps</span>
-            <span class="skill">AI-assisted Documentation</span>
-            <span class="skill">Release Notes</span>
-            <span class="skill">How-to Guides</span>
-            <span class="skill">Process Documentation</span>
-            <span class="skill">Information Architecture</span>
-            <span class="skill">Content Editing</span>
-            <span class="skill">Content Strategy</span>
+    <div class="skills">
+
+        <div class="skill-card">
+            <div class="skill-icon">✍️</div>
+            <h3>Technical Writing</h3>
+            <p>
+                Creating clear, accurate and user-focused technical
+                documentation for complex products, processes and technology.
+            </p>
         </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🧭</div>
+            <h3>Information Architecture</h3>
+            <p>
+                Organizing complex information into logical, intuitive and
+                user-friendly documentation structures.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">📚</div>
+            <h3>Documentation Strategy</h3>
+            <p>
+                Planning documentation around audience needs, product goals,
+                content lifecycle and maintainability.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">✏️</div>
+            <h3>Editing & Content Quality</h3>
+            <p>
+                Improving clarity, consistency, terminology, grammar and
+                adherence to editorial and style guidelines.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🧩</div>
+            <h3>Structured Authoring</h3>
+            <p>
+                Experience with structured content concepts, including DITA,
+                reusable content and component-based documentation.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🤖</div>
+            <h3>AI-Assisted Documentation</h3>
+            <p>
+                Using AI-assisted workflows to improve documentation
+                productivity, content review and editorial quality.
+            </p>
+        </div>
+
     </div>
 </section>
 
