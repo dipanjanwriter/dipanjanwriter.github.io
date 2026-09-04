@@ -456,18 +456,22 @@
 
     .about-expertise {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .expertise-card {
         background: white;
-        padding: 27px;
+        padding: 32px;
         border-radius: 16px;
         border: 1px solid #e3e8ee;
+        border-left: 4px solid #00a6a6;
         box-shadow: 0 5px 18px rgba(23, 43, 77, 0.05);
         position: relative;
         overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+        gap: 22px;
         transition:
             transform 0.25s ease,
             box-shadow 0.25s ease,
@@ -480,27 +484,22 @@
         border-color: #00a6a6;
     }
 
-    .expertise-number {
-        position: absolute;
-        top: 18px;
-        right: 20px;
-        font-size: 12px;
-        font-weight: 700;
-        color: #b8c2cc;
-    }
-
     .expertise-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
         background: #eef8f8;
         color: #00a6a6;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 21px;
+        font-size: 25px;
         font-weight: 700;
-        margin-bottom: 20px;
+        flex-shrink: 0;
+    }
+
+    .expertise-content {
+        flex: 1;
     }
 
     .expertise-card h3 {
@@ -1368,63 +1367,65 @@
     <div class="about-expertise">
 
         <div class="expertise-card">
-            <div class="expertise-number">01</div>
             <div class="expertise-icon">✍</div>
 
-            <h3>Technical Documentation</h3>
+            <div class="expertise-content">
+                <h3>Technical Documentation</h3>
 
-            <p>
-                User guides, installation guides, configuration guides,
-                API references, release notes and online help.
-            </p>
+                <p>
+                    User guides, installation guides, configuration guides,
+                    API references, release notes and online help.
+                </p>
+            </div>
         </div>
 
 
         <div class="expertise-card">
-            <div class="expertise-number">02</div>
             <div class="expertise-icon">⌘</div>
 
-            <h3>Information Architecture</h3>
+            <div class="expertise-content">
+                <h3>Information Architecture</h3>
 
-            <p>
-                Structuring complex product and technical information into
-                logical, reusable and scalable documentation systems.
-            </p>
+                <p>
+                    Structuring complex product and technical information into
+                    logical, reusable and scalable documentation systems.
+                </p>
+            </div>
         </div>
 
 
         <div class="expertise-card">
-            <div class="expertise-number">03</div>
             <div class="expertise-icon">✓</div>
 
-            <h3>Editing & Content Quality</h3>
+            <div class="expertise-content">
+                <h3>Editing & Content Quality</h3>
 
-            <p>
-                Ensuring clarity, consistency, accurate terminology and
-                adherence to editorial and style standards.
-            </p>
+                <p>
+                    Ensuring clarity, consistency, accurate terminology and
+                    adherence to editorial and style standards.
+                </p>
+            </div>
         </div>
 
 
         <div class="expertise-card ai-card">
-            <div class="expertise-number">04</div>
             <div class="expertise-icon">AI</div>
 
-            <h3>AI-Assisted Documentation</h3>
+            <div class="expertise-content">
+                <h3>AI-Assisted Documentation</h3>
 
-            <p>
-                Using AI-assisted workflows to accelerate content creation,
-                strengthen content review and improve editorial productivity.
-            </p>
+                <p>
+                    Using AI-assisted workflows to accelerate content creation,
+                    strengthen content review and improve editorial productivity.
+                </p>
 
-            <div class="ai-flow">
-                <span>Create</span>
-                <span>Review</span>
-                <span>Refine</span>
+                <div class="ai-flow">
+                    <span>Create</span>
+                    <span>Review</span>
+                    <span>Refine</span>
+                </div>
             </div>
         </div>
-
-    </div>
 
 </section>
 <section id="skills">
