@@ -301,17 +301,11 @@
        ABOUT ME
        ========================================= */
 
-    .about-hero {
+   .about-hero {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        align-items: start;
         gap: 24px;
-    }
-
-    .about-left {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
+        margin-bottom: 24px;
     }
     .about-intro {
         background: white;
@@ -361,13 +355,14 @@
         margin-bottom: 12px;
     }
 
-    .about-stat {
+      .about-stat {
         background: #172b4d;
         color: white;
         border-radius: 18px;
-        padding: 30px;
+        padding: 35px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
@@ -1325,104 +1320,35 @@
 
     <div class="about-hero">
 
-        <div class="about-left">
+        <div class="about-intro">
+            <span class="about-eyebrow">19+ YEARS OF EXPERIENCE</span>
 
-            <div class="about-intro">
-                <span class="about-eyebrow">19+ YEARS OF EXPERIENCE</span>
+            <h3>
+                Turning complex information into
+                <span>clear, user-friendly documentation.</span>
+            </h3>
 
-                <h3>
-                    Turning complex information into
-                    <span>clear, user-friendly documentation.</span>
-                </h3>
+            <p>
+                I'm a Senior Technical Writer with 19+ years of experience
+                creating technical documentation, structured content and
+                editorial-quality copy for enterprise software products.
+                My focus areas include documentation strategy, information
+                architecture, structured authoring and API documentation.
+            </p>
 
-                <p>
-                    I'm a Senior Technical Writer with 19+ years of experience
-                    creating technical documentation, structured content and
-                    editorial-quality copy for enterprise software products.
-                    My focus areas include documentation strategy, information
-                    architecture, structured authoring and API documentation.
-                </p>
+            <p>
+                I partner with Product, Engineering, QA and subject matter
+                experts across the full documentation lifecycle — from
+                requirements gathering to publishing — to deliver accurate,
+                user-focused content for complex, regulated industries
+                including Healthcare and Banking.
+            </p>
 
-                <p>
-                    I partner with Product, Engineering, QA and subject matter
-                    experts across the full documentation lifecycle — from
-                    requirements gathering to publishing — to deliver accurate,
-                    user-focused content for complex, regulated industries
-                    including Healthcare and Banking.
-                </p>
-
-                <p>
-                    I'm currently expanding into docs-as-code workflows,
-                    building hands-on skills in Git, GitHub and Markdown to
-                    support version-controlled, developer-friendly documentation.
-                </p>
-            </div>
-
-            <div class="about-expertise">
-
-                <div class="expertise-card">
-                    <div class="expertise-icon">✍</div>
-
-                    <div class="expertise-content">
-                        <h3>Technical Documentation</h3>
-
-                        <p>
-                            User guides, installation guides, configuration guides,
-                            API references, release notes and online help.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="expertise-card">
-                    <div class="expertise-icon">⌘</div>
-
-                    <div class="expertise-content">
-                        <h3>Information Architecture</h3>
-
-                        <p>
-                            Structuring complex product and technical information into
-                            logical, reusable and scalable documentation systems.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="expertise-card">
-                    <div class="expertise-icon">✓</div>
-
-                    <div class="expertise-content">
-                        <h3>Editing & Content Quality</h3>
-
-                        <p>
-                            Ensuring clarity, consistency, accurate terminology and
-                            adherence to editorial and style standards.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="expertise-card ai-card">
-                    <div class="expertise-icon">AI</div>
-
-                    <div class="expertise-content">
-                        <h3>AI-Assisted Documentation</h3>
-
-                        <p>
-                            Using AI-assisted workflows to accelerate content creation,
-                            strengthen content review and improve editorial productivity.
-                        </p>
-
-                        <div class="ai-flow">
-                            <span>Create</span>
-                            <span>Review</span>
-                            <span>Refine</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+            <p>
+                I'm currently expanding into docs-as-code workflows,
+                building hands-on skills in Git, GitHub and Markdown to
+                support version-controlled, developer-friendly documentation.
+            </p>
         </div>
 
         <div class="about-stat">
@@ -1438,67 +1364,71 @@
 
     </div>
 
-</section>
-<section id="skills">
-    <h2>Technical Writing Skills</h2>
+    <div class="about-expertise">
 
-    <div class="skills">
+        <div class="expertise-card">
+            <div class="expertise-icon">✍</div>
 
-        <div class="skill-card">
-            <div class="skill-icon">✍️</div>
-            <h3>Technical Writing</h3>
-            <p>
-                Creating clear, accurate and user-focused technical
-                documentation for complex products, processes and technology.
-            </p>
+            <div class="expertise-content">
+                <h3>Technical Documentation</h3>
+
+                <p>
+                    User guides, installation guides, configuration guides,
+                    API references, release notes and online help.
+                </p>
+            </div>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🧭</div>
-            <h3>Information Architecture</h3>
-            <p>
-                Organizing complex information into logical, intuitive and
-                user-friendly documentation structures.
-            </p>
+
+        <div class="expertise-card">
+            <div class="expertise-icon">⌘</div>
+
+            <div class="expertise-content">
+                <h3>Information Architecture</h3>
+
+                <p>
+                    Structuring complex product and technical information into
+                    logical, reusable and scalable documentation systems.
+                </p>
+            </div>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">📚</div>
-            <h3>Documentation Strategy</h3>
-            <p>
-                Planning documentation around audience needs, product goals,
-                content lifecycle and maintainability.
-            </p>
+
+        <div class="expertise-card">
+            <div class="expertise-icon">✓</div>
+
+            <div class="expertise-content">
+                <h3>Editing & Content Quality</h3>
+
+                <p>
+                    Ensuring clarity, consistency, accurate terminology and
+                    adherence to editorial and style standards.
+                </p>
+            </div>
         </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">✏️</div>
-            <h3>Editing & Content Quality</h3>
-            <p>
-                Improving clarity, consistency, terminology, grammar and
-                adherence to editorial and style guidelines.
-            </p>
-        </div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🧩</div>
-            <h3>Structured Authoring</h3>
-            <p>
-                Experience with structured content concepts, including DITA,
-                reusable content and component-based documentation.
-            </p>
-        </div>
+        <div class="expertise-card ai-card">
+            <div class="expertise-icon">AI</div>
 
-        <div class="skill-card">
-            <div class="skill-icon">🤖</div>
-            <h3>AI-Assisted Documentation</h3>
-            <p>
-                Using AI-assisted workflows to improve documentation
-                productivity, content review and editorial quality.
-            </p>
+            <div class="expertise-content">
+                <h3>AI-Assisted Documentation</h3>
+
+                <p>
+                    Using AI-assisted workflows to accelerate content creation,
+                    strengthen content review and improve editorial productivity.
+                </p>
+
+                <div class="ai-flow">
+                    <span>Create</span>
+                    <span>Review</span>
+                    <span>Refine</span>
+                </div>
+            </div>
         </div>
 
     </div>
+
 </section>
 
 <section id="tools">
