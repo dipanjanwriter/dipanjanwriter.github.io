@@ -304,10 +304,15 @@
     .about-hero {
         display: grid;
         grid-template-columns: 2fr 1fr;
+        align-items: start;
         gap: 24px;
-        margin-bottom: 24px;
     }
 
+    .about-left {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
     .about-intro {
         background: white;
         padding: 42px;
@@ -360,10 +365,9 @@
         background: #172b4d;
         color: white;
         border-radius: 18px;
-        padding: 35px;
+        padding: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
@@ -1326,35 +1330,104 @@
 
     <div class="about-hero">
 
-        <div class="about-intro">
-            <span class="about-eyebrow">19+ YEARS OF EXPERIENCE</span>
+        <div class="about-left">
 
-            <h3>
-                Turning complex information into
-                <span>clear, user-friendly documentation.</span>
-            </h3>
+            <div class="about-intro">
+                <span class="about-eyebrow">19+ YEARS OF EXPERIENCE</span>
 
-            <p>
-                I'm a Senior Technical Writer with 19+ years of experience
-                creating technical documentation, structured content and
-                editorial-quality copy for enterprise software products.
-                My focus areas include documentation strategy, information
-                architecture, structured authoring and API documentation.
-            </p>
+                <h3>
+                    Turning complex information into
+                    <span>clear, user-friendly documentation.</span>
+                </h3>
 
-            <p>
-                I partner with Product, Engineering, QA and subject matter
-                experts across the full documentation lifecycle — from
-                requirements gathering to publishing — to deliver accurate,
-                user-focused content for complex, regulated industries
-                including Healthcare and Banking.
-            </p>
+                <p>
+                    I'm a Senior Technical Writer with 19+ years of experience
+                    creating technical documentation, structured content and
+                    editorial-quality copy for enterprise software products.
+                    My focus areas include documentation strategy, information
+                    architecture, structured authoring and API documentation.
+                </p>
 
-            <p>
-                I'm currently expanding into docs-as-code workflows,
-                building hands-on skills in Git, GitHub and Markdown to
-                support version-controlled, developer-friendly documentation.
-            </p>
+                <p>
+                    I partner with Product, Engineering, QA and subject matter
+                    experts across the full documentation lifecycle — from
+                    requirements gathering to publishing — to deliver accurate,
+                    user-focused content for complex, regulated industries
+                    including Healthcare and Banking.
+                </p>
+
+                <p>
+                    I'm currently expanding into docs-as-code workflows,
+                    building hands-on skills in Git, GitHub and Markdown to
+                    support version-controlled, developer-friendly documentation.
+                </p>
+            </div>
+
+            <div class="about-expertise">
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">✍</div>
+
+                    <div class="expertise-content">
+                        <h3>Technical Documentation</h3>
+
+                        <p>
+                            User guides, installation guides, configuration guides,
+                            API references, release notes and online help.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">⌘</div>
+
+                    <div class="expertise-content">
+                        <h3>Information Architecture</h3>
+
+                        <p>
+                            Structuring complex product and technical information into
+                            logical, reusable and scalable documentation systems.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="expertise-card">
+                    <div class="expertise-icon">✓</div>
+
+                    <div class="expertise-content">
+                        <h3>Editing & Content Quality</h3>
+
+                        <p>
+                            Ensuring clarity, consistency, accurate terminology and
+                            adherence to editorial and style standards.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="expertise-card ai-card">
+                    <div class="expertise-icon">AI</div>
+
+                    <div class="expertise-content">
+                        <h3>AI-Assisted Documentation</h3>
+
+                        <p>
+                            Using AI-assisted workflows to accelerate content creation,
+                            strengthen content review and improve editorial productivity.
+                        </p>
+
+                        <div class="ai-flow">
+                            <span>Create</span>
+                            <span>Review</span>
+                            <span>Refine</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
         <div class="about-stat">
@@ -1362,11 +1435,13 @@
 
             <ul class="stat-list">
                 <li><strong>19+</strong> Years in writing &amp; documentation</li>
-                <li><strong>20+</strong> Products documented from scratch</li>
-                <li><strong>8+</strong> Years in Content Writing and Editing</li>
-                <li><strong>AI</strong> Created AI-assisted documentation workflows</li>
+                <li><strong>4</strong> Products documented from scratch</li>
+                <li><strong>3</strong> Industries: Healthcare, Banking &amp; Enterprise SaaS</li>
+                <li><strong>AI</strong> AI-assisted documentation workflows</li>
             </ul>
         </div>
+
+    </div>
 
 
     <div class="about-expertise">
