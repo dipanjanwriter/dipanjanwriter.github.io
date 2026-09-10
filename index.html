@@ -734,11 +734,7 @@
     font-size: 13px;
     font-weight: 600;
 
-    transform: scale(1);
-    transform-origin: center;
-
     transition:
-        transform 0.35s ease,
         background 0.35s ease,
         color 0.35s ease,
         border-color 0.35s ease,
@@ -752,7 +748,6 @@
     font-size: 11px;
     font-weight: bold;
     margin-right: 7px;
-    transition: transform 0.35s ease;
 }
 
 
@@ -762,19 +757,15 @@
 
 /*
    When the user hovers anywhere over the
-   category, enlarge all the tools inside it.
+   category, gently highlight all the tools inside it
+   (no size change).
 */
 
 .tool-category:hover .tool-list li {
-    transform: scale(1.12);
     background: #e8f7f7;
     color: #087f7f;
     border-color: #9edede;
     box-shadow: 0 7px 16px rgba(0, 166, 166, 0.15);
-}
-
-.tool-category:hover .tool-list li::before {
-    transform: scale(1.15);
 }
 
 
@@ -782,7 +773,6 @@
    mouse is directly over an individual tool */
 
 .tool-category .tool-list li:hover {
-    transform: scale(1.18);
     background: #dff4f4;
     color: #087f7f;
     border-color: #79caca;
@@ -821,14 +811,6 @@
     .tool-list li {
         font-size: 12px;
         padding: 7px 10px;
-    }
-
-    .tool-category:hover .tool-list li {
-        transform: scale(1.07);
-    }
-
-    .tool-category .tool-list li:hover {
-        transform: scale(1.10);
     }
 }
 
