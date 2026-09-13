@@ -80,7 +80,7 @@
         margin: auto;
     }
 
-       .hero-tagline {
+    .hero-tagline {
         display: block;
         color: #63d6d6;
         font-size: 16px;
@@ -533,6 +533,135 @@
         background: #e4f5f5;
         padding: 5px 8px;
         border-radius: 12px;
+    }
+
+
+    /* =========================================
+       CURRENTLY LEARNING
+       ========================================= */
+
+    .learning-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .learning-card {
+        position: relative;
+        background: #172b4d;
+        color: white;
+        padding: 30px 26px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 22px rgba(23, 43, 77, 0.18);
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    .learning-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 34px rgba(23, 43, 77, 0.28);
+    }
+
+    .learning-card::before {
+        content: "";
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 166, 166, 0.25), transparent 70%);
+        top: -70px;
+        right: -60px;
+    }
+
+    .learning-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(99, 214, 214, 0.15);
+        color: #63d6d6;
+        border: 1px solid rgba(99, 214, 214, 0.35);
+        border-radius: 20px;
+        padding: 4px 12px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .learning-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #63d6d6;
+        display: inline-block;
+        animation: pulse-dot 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+    }
+
+    .learning-card h3 {
+        font-size: 19px;
+        line-height: 1.35;
+        margin-bottom: 12px;
+        color: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    .learning-card p {
+        color: #c3d1e0;
+        font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .learning-progress {
+        position: relative;
+        z-index: 1;
+    }
+
+    .learning-progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 8px;
+    }
+
+    .learning-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #00a6a6, #63d6d6);
+        border-radius: 10px;
+    }
+
+    .learning-progress-label {
+        font-size: 11px;
+        color: #8fa3ba;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 900px) {
+        .learning-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .learning-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
 
@@ -1326,7 +1455,7 @@
 <header>
     <div class="hero-content">
 
-                <h1>Dipanjan Mukherjee</h1>
+        <h1>Dipanjan Mukherjee</h1>
 
         <p class="hero-tagline">SENIOR TECHNICAL WRITER</p>
 
@@ -1358,7 +1487,6 @@
 
 <nav>
     <a href="#about">About</a>
-    <a href="#learning">Learning</a>
     <a href="#expertise">Expertise</a>
     <a href="#skills">Skills</a>
     <a href="#tools">Tools</a>
@@ -1388,7 +1516,7 @@
                 architecture, structured authoring and API documentation.
             </p>
 
-                       <p>
+            <p>
                 I partner with Product, Engineering, QA and subject matter
                 experts across the full documentation lifecycle — from
                 requirements gathering to publishing — to deliver accurate,
@@ -1487,9 +1615,9 @@
             </p>
             <div class="learning-progress">
                 <div class="learning-progress-bar">
-                    <div class="learning-progress-fill" style="width: 45%;"></div>
+                    <div class="learning-progress-fill" style="width: 25%;"></div>
                 </div>
-                <span class="learning-progress-label">Getting hands-on</span>
+                <span class="learning-progress-label">Early stages</span>
             </div>
         </div>
 
@@ -1502,16 +1630,15 @@
             </p>
             <div class="learning-progress">
                 <div class="learning-progress-bar">
-                    <div class="learning-progress-fill" style="width: 35%;"></div>
+                    <div class="learning-progress-fill" style="width: 55%;"></div>
                 </div>
-                <span class="learning-progress-label">Early stages</span>
+                <span class="learning-progress-label">Getting hands on</span>
             </div>
         </div>
-        
 
     </div>
 </section>
-    
+
 <section id="skills">
     <h2>Skills</h2>
 
