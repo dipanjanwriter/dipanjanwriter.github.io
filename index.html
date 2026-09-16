@@ -193,6 +193,59 @@ header.hero::before {
     margin-bottom: 14px;
 }
 
+/* ---------------------------------------------------------
+   Hero role / lede carousel
+
+   Three slides (role + lede pair) auto-rotate every 4s.
+   The active slide sits in normal flow; the outgoing slide
+   is absolutely positioned over it and animates out to the
+   right while the incoming slide animates in from the left.
+   --------------------------------------------------------- */
+
+.hero-carousel {
+    position: relative;
+    min-height: 190px;
+}
+
+@media (max-width: 760px) {
+    .hero-carousel {
+        min-height: 230px;
+    }
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(0);
+}
+
+.hero-slide.is-active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.hero-slide.is-leaving {
+    position: absolute;
+    opacity: 0;
+    visibility: visible;
+    transform: translateX(60px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.hero-slide.is-entering {
+    position: absolute;
+    opacity: 0;
+    visibility: visible;
+    transform: translateX(-60px);
+}
+
 .hero-role {
     font-family: var(--ui-font);
     font-size: 20px;
@@ -200,6 +253,7 @@ header.hero::before {
     letter-spacing: 0.6px;
     color: var(--teal-light);
     margin-bottom: 26px;
+    text-transform: uppercase;
 }
 
 .hero-lede {
@@ -208,6 +262,40 @@ header.hero::before {
     font-size: clamp(16px, 2vw, 19px);
     line-height: 1.8;
     color: #dbe5ef;
+}
+
+.hero-dots {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.hero-dots button.is-active {
+    background: var(--teal-light);
+    transform: scale(1.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide,
+    .hero-slide.is-active,
+    .hero-slide.is-leaving,
+    .hero-slide.is-entering {
+        transition: none !important;
+    }
 }
 
 .hero-disciplines {
@@ -1483,13 +1571,43 @@ footer a:hover {
 
         <h1>Dipanjan Mukherjee</h1>
 
-        <p class="hero-role">Senior Technical Writer</p>
+        <div class="hero-carousel" id="heroCarousel">
 
-        <p class="hero-lede">
-            I turn complex products, processes and technologies into clear,
-            structured documentation that helps people install, configure
-            and actually use what they have bought.
-        </p>
+            <div class="hero-slide" data-slide="0">
+                <p class="hero-role">Senior Technical Writer</p>
+                <p class="hero-lede">
+                    I turn complex products, processes and technologies into clear,
+                    structured documentation that helps people install, configure
+                    and actually use what they have bought.
+                </p>
+            </div>
+
+            <div class="hero-slide" data-slide="1">
+                <p class="hero-role">Senior Content Professional</p>
+                <p class="hero-lede">
+                    I bring strategy, storytelling and subject-matter expertise
+                    together to create content that informs, engages and moves
+                    audiences from understanding to action.
+                </p>
+            </div>
+
+            <div class="hero-slide" data-slide="2">
+                <p class="hero-role">Senior Editor</p>
+                <p class="hero-lede">
+                    I bring clarity, precision and consistency to complex content,
+                    shaping ideas into polished communications and changing
+                    not-so-good content into excellent writeups that are accurate,
+                    purposeful and easy to understand.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Role highlights">
+            <button type="button" data-goto="0" aria-label="Show slide 1"></button>
+            <button type="button" data-goto="1" aria-label="Show slide 2"></button>
+            <button type="button" data-goto="2" aria-label="Show slide 3"></button>
+        </div>
 
         <ul class="hero-disciplines">
             <li>Technical documentation</li>
@@ -2282,6 +2400,87 @@ footer a:hover {
             document.querySelectorAll(".reveal"),
             function (el) { el.classList.add("is-in"); }
         );
+    }
+
+    /* ---------- Hero role / lede carousel ---------- */
+    var carousel = document.getElementById("heroCarousel");
+
+    if (carousel) {
+
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll(".hero-slide"));
+        var dots   = Array.prototype.slice.call(document.querySelectorAll("#heroDots button"));
+        var current = 0;
+        var intervalId = null;
+        var intervalMs = 4000;
+
+        function setDots(index) {
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle("is-active", i === index);
+            });
+        }
+
+        function goTo(nextIndex) {
+            if (nextIndex === current) { return; }
+
+            var outgoing = slides[current];
+            var incoming = slides[nextIndex];
+
+            /* place incoming off-screen to the left, then let it transition in */
+            incoming.classList.add("is-entering");
+            incoming.classList.remove("is-leaving", "is-active");
+
+            /* force layout so the entering position is applied before animating */
+            void incoming.offsetWidth;
+
+            outgoing.classList.remove("is-active");
+            outgoing.classList.add("is-leaving");
+
+            incoming.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+            incoming.classList.remove("is-entering");
+            incoming.classList.add("is-active");
+
+            current = nextIndex;
+            setDots(current);
+        }
+
+        function nextSlide() {
+            goTo((current + 1) % slides.length);
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            intervalId = window.setInterval(nextSlide, intervalMs);
+        }
+
+        function stopAutoplay() {
+            if (intervalId) {
+                window.clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        /* initial state */
+        slides.forEach(function (slide, i) {
+            slide.classList.toggle("is-active", i === 0);
+        });
+        setDots(0);
+
+        dots.forEach(function (dot) {
+            dot.addEventListener("click", function () {
+                var target = parseInt(dot.getAttribute("data-goto"), 10);
+                goTo(target);
+                startAutoplay();
+            });
+        });
+
+        carousel.addEventListener("mouseenter", stopAutoplay);
+        carousel.addEventListener("mouseleave", startAutoplay);
+
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reduceMotion) {
+            startAutoplay();
+        }
     }
 
 }());
