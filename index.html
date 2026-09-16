@@ -843,6 +843,14 @@ section {
     box-shadow: var(--shadow-md);
 }
 
+/* the lead sample gets extra weight */
+.sample-card.is-lead {
+    border-left-width: 6px;
+    border-top: 1px solid #cdecec;
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(180deg, #fbfefe 0%, #ffffff 42%);
+}
+
 .sample-kind {
     display: inline-block;
     background: #eaf6f6;
@@ -855,9 +863,19 @@ section {
     margin-bottom: 12px;
 }
 
+.sample-card.is-lead .sample-kind {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+    color: #fff;
+}
+
 .sample-card h3 {
     font-size: 22px;
     margin-bottom: 10px;
+}
+
+.sample-card.is-lead h3 {
+    font-size: 25px;
 }
 
 .sample-card > p {
@@ -913,6 +931,7 @@ section {
 .sample-actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
     padding-top: 18px;
     border-top: 1px solid #edf1f4;
@@ -937,6 +956,17 @@ section {
     transform: translateY(-2px);
 }
 
+.link-button.is-solid {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+}
+
+.link-button.is-solid:hover {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+}
+
 .link-button.is-quiet {
     background: transparent;
     border-color: var(--line);
@@ -947,6 +977,11 @@ section {
     background: #f1f5f8;
     color: var(--ink);
     border-color: #cfd8e0;
+}
+
+.file-hint {
+    font-size: 12.5px;
+    color: #8493a4;
 }
 
 .samples-note {
@@ -1389,6 +1424,10 @@ footer a:hover {
     .sample-card {
         padding: 26px 24px;
     }
+
+    .sample-card.is-lead h3 {
+        font-size: 21px;
+    }
 }
 
 @media (max-width: 520px) {
@@ -1401,6 +1440,11 @@ footer a:hover {
     .button {
         width: 100%;
         max-width: 300px;
+        text-align: center;
+    }
+
+    .link-button {
+        width: 100%;
         text-align: center;
     }
 
@@ -1654,7 +1698,7 @@ footer a:hover {
             </p>
             <p class="learning-proof">
                 <!-- Point this at your API reference sample once it is published -->
-                Sample: <a href="#samples">Payments API reference</a>
+                Next sample in progress: a REST API reference
             </p>
         </article>
 
@@ -1745,161 +1789,72 @@ footer a:hover {
 <!-- =========================================================
      WRITING SAMPLES
 
-     ACTION NEEDED: replace every href="#" below with a link to
-     the real sample (a PDF, a hosted help page, or a Markdown
-     file in your GitHub repo), and edit the audience, tools and
-     role lines so they describe your actual work.
+     This section expects two files in the repo:
+       samples/ClinView_Portal_1_0_Module_Reference_Guide.pdf
+       samples/clinview-portal-product-guide/index.html
+
+     Add further sample cards below this one as they are ready.
      ========================================================= -->
 
 <section id="samples" class="reveal">
 
     <div class="section-head">
         <h2>Writing samples</h2>
-        <p>Short, self-contained pieces that show how I structure information for a
-           specific reader. Proprietary work is summarised rather than reproduced.</p>
+        <p>A full product guide, written end to end, so you can judge the structure
+           and the writing rather than take my word for it.</p>
     </div>
 
     <div class="samples-grid">
 
         <article class="sample-card">
-            <span class="sample-kind">API reference</span>
-            <h3>Payments API, endpoint reference</h3>
+            <span class="sample-kind">Module reference guide</span>
+            <h3>Product Guide</h3>
 
             <p>
-                A reference for a small REST API, covering authentication, three core
-                endpoints, request and response schemas, error codes and a worked
-                example for each call.
+                A complete administrator and user guide for ClinView Portal, a
+                browser-based clinical content viewer. It covers the product overview,
+                deployment and installation, administrative configuration, and
+                end-user tasks in one structured reference, written to the same
+                pattern as the module reference guides I produce in enterprise
+                documentation work.
             </p>
 
             <dl class="sample-meta">
                 <div>
                     <dt>Audience</dt>
-                    <dd>Backend developers integrating the API</dd>
+                    <dd>System administrators, implementation consultants and clinical end users</dd>
                 </div>
                 <div>
                     <dt>Tools</dt>
-                    <dd>Markdown, Git, Postman</dd>
+                    <dd>Microsoft Word, HTML online help</dd>
                 </div>
                 <div>
                     <dt>My role</dt>
-                    <dd>Sole author: structure, drafting and examples</dd>
+                    <dd>Sole author: information architecture, drafting, figures and publishing</dd>
                 </div>
             </dl>
 
             <ul class="sample-deliverables">
-                <li>Authentication and quickstart topic</li>
-                <li>Endpoint reference with parameter tables</li>
-                <li>Error-code reference and troubleshooting notes</li>
+                <li>Overview: introduction, version compatibility, supported formats and licensing</li>
+                <li>Installation: deployment tiers, system requirements, silent-install parameters, identity and access management, troubleshooting</li>
+                <li>Configuration: repository type mapping, categories, columns, filters and viewer settings</li>
+                <li>Usage: task-based procedures for filtering, viewing, flagging and annotating content</li>
             </ul>
 
             <div class="sample-actions">
-                <a class="link-button" href="#">Read the sample</a>
-                <a class="link-button is-quiet" href="#">View source on GitHub</a>
-            </div>
-        </article>
-
-        <article class="sample-card">
-            <span class="sample-kind">Task-based user guide</span>
-            <h3>Module reference guide, configuration walkthrough</h3>
-
-            <p>
-                A task-oriented guide that takes an administrator from a clean install
-                through to a working configuration, written so each task can be
-                completed without reading the one before it.
-            </p>
-
-            <dl class="sample-meta">
-                <div>
-                    <dt>Audience</dt>
-                    <dd>System administrators and implementation consultants</dd>
-                </div>
-                <div>
-                    <dt>Tools</dt>
-                    <dd>MadCap Flare, Jira, Confluence</dd>
-                </div>
-                <div>
-                    <dt>My role</dt>
-                    <dd>Author, from requirements gathering to publishing</dd>
-                </div>
-            </dl>
-
-            <ul class="sample-deliverables">
-                <li>Installation and prerequisites</li>
-                <li>Step-by-step configuration tasks</li>
-                <li>Reference tables for settings and permissions</li>
-            </ul>
-
-            <div class="sample-actions">
-                <a class="link-button" href="#">Read the sample</a>
-                <a class="link-button is-quiet" href="#">Download PDF</a>
-            </div>
-        </article>
-
-        <article class="sample-card">
-            <span class="sample-kind">Knowledge base</span>
-            <h3>Support knowledge base, how-to articles</h3>
-
-            <p>
-                A set of short articles written to be found by search and read in under
-                two minutes, each answering one question with a single clear outcome.
-            </p>
-
-            <dl class="sample-meta">
-                <div>
-                    <dt>Audience</dt>
-                    <dd>End users and first-line support</dd>
-                </div>
-                <div>
-                    <dt>Tools</dt>
-                    <dd>Markdown, structured templates</dd>
-                </div>
-                <div>
-                    <dt>My role</dt>
-                    <dd>Author and information architect</dd>
-                </div>
-            </dl>
-
-            <ul class="sample-deliverables">
-                <li>Article template and writing standards</li>
-                <li>Category and tagging structure</li>
-                <li>Six how-to articles</li>
-            </ul>
-
-            <div class="sample-actions">
-                <a class="link-button" href="#">Read the sample</a>
-            </div>
-        </article>
-
-        <article class="sample-card">
-            <span class="sample-kind">Technical article</span>
-            <h3>Explaining a complex concept in plain language</h3>
-
-            <p>
-                A longer explanatory piece that introduces a technical concept to a
-                non-specialist reader, using one running example instead of jargon.
-            </p>
-
-            <dl class="sample-meta">
-                <div>
-                    <dt>Audience</dt>
-                    <dd>Product and business stakeholders</dd>
-                </div>
-                <div>
-                    <dt>Tools</dt>
-                    <dd>Markdown</dd>
-                </div>
-                <div>
-                    <dt>My role</dt>
-                    <dd>Sole author</dd>
-                </div>
-            </dl>
-
-            <div class="sample-actions">
-                <a class="link-button" href="#">Read the article</a>
+                <a class="link-button" href="samples/clinview-portal-product-guide/index.html">View as online help</a>
+                <a class="link-button is-quiet" href="samples/ClinView_Portal_1_0_Module_Reference_Guide.pdf" download>Download PDF</a>
             </div>
         </article>
 
     </div>
+
+    <p class="samples-note">
+        Documentation written at Hyland Software and Ensim is customer-licensed and
+        cannot be republished here. The samples above are written independently, using
+        fictitious products and data, and I am happy to walk through the licensed work,
+        including structure and editorial decisions, in an interview.
+    </p>
 
 </section>
 
