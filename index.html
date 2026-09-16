@@ -1,837 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dipanjan Mukherjee | Senior Technical Writer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dipanjan Mukherjee | Senior Technical Writer</title>
+
+<!-- SEO -->
+<meta name="description" content="Dipanjan Mukherjee — Senior Technical Writer with 19+ years of experience in technical documentation, information architecture, structured authoring and AI-assisted documentation workflows for Healthcare, Banking and enterprise SaaS products.">
+<meta name="author" content="Dipanjan Mukherjee">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dipanjanwriter.github.io/">
+
+<!-- Open Graph / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dipanjan Mukherjee">
+<meta property="og:title" content="Dipanjan Mukherjee | Senior Technical Writer">
+<meta property="og:description" content="19+ years turning complex products into clear, structured documentation. Technical documentation, information architecture, API references and AI-assisted editorial workflows.">
+<meta property="og:url" content="https://dipanjanwriter.github.io/">
+<!--
+  OG image: add a 1200x630 PNG named og-cover.png next to index.html
+  and this preview card will render on LinkedIn, Slack and WhatsApp.
+-->
+<meta property="og:image" content="https://dipanjanwriter.github.io/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dipanjan Mukherjee | Senior Technical Writer">
+<meta name="twitter:description" content="19+ years turning complex products into clear, structured documentation.">
+
+<!-- Favicon (inline SVG, no extra file needed) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2310243f'/><text x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%2363d6d6' text-anchor='middle'>D</text></svg>">
+
+<!-- Typefaces: Spectral for headings, Inter for interface text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-    /* =========================================
-       GLOBAL RESET
-       ========================================= */
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-        color: #263238;
-        background: #f5f7fa;
-    }
-
-    a {
-        transition: all 0.25s ease;
-    }
-
-
-    /* =========================================
-       HERO SECTION
-       ========================================= */
-
-    header {
-        position: relative;
-        overflow: hidden;
-        background:
-            radial-gradient(circle at 85% 20%, rgba(0, 166, 166, 0.18), transparent 30%),
-            radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.06), transparent 25%),
-            #172b4d;
-        color: white;
-        padding: 95px 20px 90px;
-        text-align: center;
-    }
-
-    header::before {
-        content: "";
-        position: absolute;
-        width: 420px;
-        height: 420px;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 50%;
-        top: -230px;
-        right: -120px;
-    }
-
-    header::after {
-        content: "";
-        position: absolute;
-        width: 280px;
-        height: 280px;
-        border: 1px solid rgba(0, 166, 166, 0.18);
-        border-radius: 50%;
-        bottom: -180px;
-        left: -100px;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .hero-tagline {
-        display: block;
-        color: #63d6d6;
-        font-size: 16px;
-        font-weight: bold;
-        letter-spacing: 3px;
-        margin-top: 4px;
-        margin-bottom: 22px;
-    }
-
-    header h1 {
-        font-size: 50px;
-        line-height: 1.15;
-        margin-bottom: 16px;
-        letter-spacing: -1px;
-    }
-
-    header h2 {
-        font-size: 21px;
-        font-weight: normal;
-        line-height: 1.6;
-        color: #d9e4ef;
-        margin-bottom: 24px;
-    }
-
-    header h2 span {
-        color: #63d6d6;
-        margin: 0 7px;
-    }
-
-    .hero-description {
-        max-width: 720px;
-        margin: auto;
-        font-size: 17px;
-        line-height: 1.8;
-        color: #d7e0ea;
-    }
-
-    .hero-highlights {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 28px;
-    }
-
-    .hero-highlights span {
-        padding: 8px 14px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 30px;
-        color: #e8f0f6;
-        font-size: 13px;
-    }
-
-
-    /* =========================================
-       BUTTONS
-       ========================================= */
-
-    .buttons {
-        margin-top: 34px;
-    }
-
-    .button {
-        display: inline-block;
-        padding: 13px 25px;
-        margin: 5px;
-        text-decoration: none;
-        border-radius: 7px;
-        font-weight: bold;
-        font-size: 14px;
-        transition: all 0.25s ease;
-    }
-
-    .primary-button {
-        background: #00a6a6;
-        color: white;
-        border: 1px solid #00a6a6;
-    }
-
-    .primary-button:hover {
-        background: #087f7f;
-        border-color: #087f7f;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0, 166, 166, 0.25);
-    }
-
-    .secondary-button {
-        background: transparent;
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-    }
-
-    .secondary-button:hover {
-        background: white;
-        color: #172b4d;
-        transform: translateY(-2px);
-    }
-
-
-    /* =========================================
-       NAVIGATION
-       ========================================= */
-
-    nav {
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(10px);
-        padding: 15px 20px;
-        text-align: center;
-        box-shadow: 0 3px 15px rgba(23, 43, 77, 0.08);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #e7ebef;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 0 13px;
-        color: #34495e;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-        position: relative;
-        padding: 5px 0;
-    }
-
-    nav a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 0;
-        height: 2px;
-        background: #00a6a6;
-        transition: width 0.25s ease;
-    }
-
-    nav a:hover {
-        color: #00a6a6;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-
-    /* =========================================
-       SECTIONS
-       ========================================= */
-
-     section {
-        max-width: 1100px;
-        margin: auto;
-        padding: 45px 25px;
-    }
-
-    section h2 {
-        position: relative;
-        font-size: 31px;
-        color: #172b4d;
-        margin-bottom: 35px;
-        padding-bottom: 14px;
-        letter-spacing: -0.4px;
-    }
-
-    section h2::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 55px;
-        height: 4px;
-        border-radius: 3px;
-        background: #00a6a6;
-    }
-
-
-    /* =========================================
-       GENERAL CARDS
-       ========================================= */
-
-    .card {
-        background: white;
-        padding: 30px;
-        margin: 20px 0;
-        border-radius: 14px;
-        border: 1px solid #e3e8ee;
-        box-shadow: 0 5px 18px rgba(23, 43, 77, 0.06);
-    }
-
-    .card h3 {
-        color: #172b4d;
-        margin-bottom: 12px;
-        font-size: 20px;
-    }
-
-    .card p {
-        margin-bottom: 1em;
-        color: #52606d;
-    }
-
-    .card ul {
-        padding-left: 25px;
-        margin: 15px 0;
-    }
-
-    .card ul li {
-        margin-bottom: 8px;
-        color: #52606d;
-    }
-
-    .card strong {
-        color: #172b4d;
-    }
-
-
-    /* =========================================
-       ABOUT ME
-       ========================================= */
-
-   .about-hero {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
-    }
-    .about-intro {
-        background: white;
-        padding: 42px;
-        border-radius: 18px;
-        border: 1px solid #e3e8ee;
-        box-shadow: 0 8px 25px rgba(23, 43, 77, 0.06);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .about-intro::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 5px;
-        height: 100%;
-        background: #00a6a6;
-    }
-
-    .about-eyebrow {
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 1.8px;
-        color: #00a6a6;
-        margin-bottom: 18px;
-    }
-
-    .about-intro h3 {
-        color: #172b4d;
-        font-size: 31px;
-        line-height: 1.25;
-        margin-bottom: 20px;
-        max-width: 720px;
-    }
-
-    .about-intro h3 span {
-        color: #00a6a6;
-    }
-
-    .about-intro p {
-        color: #52606d;
-        font-size: 16px;
-        line-height: 1.75;
-        margin-bottom: 12px;
-    }
-
-      .about-stat {
-        background: #172b4d;
-        color: white;
-        border-radius: 18px;
-        padding: 35px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(23, 43, 77, 0.14);
-    }
-
-    .about-stat::before {
-        content: "";
-        position: absolute;
-        width: 210px;
-        height: 210px;
-        border: 1px solid rgba(255,255,255,0.10);
-        border-radius: 50%;
-        top: -90px;
-        right: -80px;
-    }
-
-    .about-stat::after {
-        content: "";
-        position: absolute;
-        width: 140px;
-        height: 140px;
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 50%;
-        bottom: -70px;
-        left: -60px;
-    }
-
-    .stat-number {
-        font-size: 68px;
-        font-weight: 700;
-        line-height: 1;
-        color: white;
-        position: relative;
-        z-index: 1;
-    }
-
-        .stat-label {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 18px;
-        color: #63d6d6;
-        position: relative;
-        z-index: 1;
-    }
-
-    .stat-description {
-        max-width: 220px;
-        margin-top: 18px;
-        color: #d7e0ea;
-        font-size: 14px;
-        line-height: 1.6;
-        position: relative;
-        z-index: 1;
-    }
-
-        .stat-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left;
-        position: relative;
-        z-index: 1;
-        width: 100%;
-    }
-
-    .stat-list li {
-        display: flex;
-        align-items: baseline;
-        gap: 10px;
-        padding: 11px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        color: #d7e0ea;
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
-    .stat-list li:last-child {
-        border-bottom: none;
-    }
-
-    .stat-list li strong {
-        color: #63d6d6;
-        font-size: 19px;
-        font-weight: 700;
-        flex-shrink: 0;
-        min-width: 34px;
-    }
-
-    .about-expertise {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .expertise-card {
-        background: white;
-        padding: 32px;
-        border-radius: 16px;
-        border: 1px solid #e3e8ee;
-        border-left: 4px solid #00a6a6;
-        box-shadow: 0 5px 18px rgba(23, 43, 77, 0.05);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: flex-start;
-        gap: 22px;
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .expertise-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 14px 30px rgba(23, 43, 77, 0.11);
-        border-color: #00a6a6;
-    }
-
-    .expertise-icon {
-        width: 58px;
-        height: 58px;
-        border-radius: 14px;
-        background: #eef8f8;
-        color: #00a6a6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-weight: 700;
-        flex-shrink: 0;
-    }
-
-    .expertise-content {
-        flex: 1;
-    }
-
-    .expertise-card h3 {
-        color: #172b4d;
-        font-size: 18px;
-        line-height: 1.35;
-        margin-bottom: 10px;
-    }
-
-    .expertise-card p {
-        color: #607080;
-        font-size: 14px;
-        line-height: 1.65;
-    }
-
-    .ai-card {
-        background: linear-gradient(145deg, #ffffff, #f4fbfb);
-    }
-
-    .ai-flow {
-        display: flex;
-        gap: 6px;
-        margin-top: 18px;
-        flex-wrap: wrap;
-    }
-
-    .ai-flow span {
-        font-size: 11px;
-        font-weight: 600;
-        color: #087f7f;
-        background: #e4f5f5;
-        padding: 5px 8px;
-        border-radius: 12px;
-    }
-
-
-    /* =========================================
-       CURRENTLY LEARNING
-       ========================================= */
-
-    .learning-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
-
-    .learning-card {
-        position: relative;
-        background: #172b4d;
-        color: white;
-        padding: 30px 26px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 22px rgba(23, 43, 77, 0.18);
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .learning-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 34px rgba(23, 43, 77, 0.28);
-    }
-
-    .learning-card::before {
-        content: "";
-        position: absolute;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(0, 166, 166, 0.25), transparent 70%);
-        top: -70px;
-        right: -60px;
-    }
-
-    .learning-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(99, 214, 214, 0.15);
-        color: #63d6d6;
-        border: 1px solid rgba(99, 214, 214, 0.35);
-        border-radius: 20px;
-        padding: 4px 12px;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        margin-bottom: 18px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .learning-badge::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #63d6d6;
-        display: inline-block;
-        animation: pulse-dot 1.6s infinite ease-in-out;
-    }
-
-    @keyframes pulse-dot {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.35; }
-    }
-
-    .learning-card h3 {
-        font-size: 19px;
-        line-height: 1.35;
-        margin-bottom: 12px;
-        color: white;
-        position: relative;
-        z-index: 1;
-    }
-
-    .learning-card p {
-        color: #c3d1e0;
-        font-size: 14px;
-        line-height: 1.65;
-        margin-bottom: 18px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .learning-progress {
-        position: relative;
-        z-index: 1;
-    }
-
-    .learning-progress-bar {
-        width: 100%;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 8px;
-    }
-
-    .learning-progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #00a6a6, #63d6d6);
-        border-radius: 10px;
-    }
-
-    .learning-progress-label {
-        font-size: 11px;
-        color: #8fa3ba;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-    }
-
-    @media (max-width: 900px) {
-        .learning-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 600px) {
-        .learning-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-
-    /* =========================================
-       SKILLS
-       ========================================= */
-
-    .skills {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .skill-card {
-        background: white;
-        padding: 28px;
-        border-radius: 14px;
-        border: 1px solid #e3e8ee;
-        box-shadow: 0 5px 18px rgba(23, 43, 77, 0.05);
-        position: relative;
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .skill-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 14px 30px rgba(23, 43, 77, 0.10);
-        border-color: #00a6a6;
-    }
-
-    .skill-icon {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #eef8f8;
-        border-radius: 12px;
-        font-size: 23px;
-        margin-bottom: 18px;
-    }
-
-    .skill-card h3 {
-        color: #172b4d;
-        font-size: 19px;
-        margin-bottom: 10px;
-    }
-
-    .skill-card p {
-        color: #52606d;
-        font-size: 15px;
-        line-height: 1.65;
-    }
-
-
-    /* SKILL BADGES (keyword grid) */
-
-    .skill-badges {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-    }
-
-    .skill-badge {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        background: white;
-        padding: 20px 22px;
-        border-radius: 14px;
-        border: 1px solid #e3e8ee;
-        box-shadow: 0 5px 18px rgba(23, 43, 77, 0.05);
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .skill-badge:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 14px 30px rgba(23, 43, 77, 0.10);
-        border-color: #00a6a6;
-    }
-
-    .skill-badge-icon {
-        flex-shrink: 0;
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-        background: #eef8f8;
-        color: #087f7f;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.3px;
-    }
-
-    .skill-badge span.skill-name {
-        color: #172b4d;
-        font-weight: 600;
-        font-size: 14.5px;
-        line-height: 1.4;
-    }
-
-    @media (max-width: 800px) {
-        .skill-badges {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 500px) {
-        .skill-badges {
-            grid-template-columns: 1fr;
-        }
-
-        .skill-badge {
-            padding: 16px 18px;
-        }
-    }
-
-/* =========================================
-   TOOLS & TECHNOLOGIES
-   ========================================= */
-
-#tools .card {
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+
+:root {
+    --ink:        #10243f;
+    --teal:       #00a6a6;
+    --teal-deep:  #06706f;
+    --teal-light: #63d6d6;
+    --mist:       #f4f7f9;
+    --surface:    #ffffff;
+    --line:       #e3e9ef;
+    --body:       #4d5f72;
+    --heading-font: "Spectral", Georgia, "Times New Roman", serif;
+    --ui-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --radius: 16px;
+    --shadow-sm: 0 4px 14px rgba(16, 36, 63, 0.05);
+    --shadow-md: 0 12px 30px rgba(16, 36, 63, 0.09);
+    --shadow-lg: 0 20px 44px rgba(16, 36, 63, 0.14);
+    --wrap: 1120px;
+}
+
+
+/* =========================================================
+   RESET AND BASE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--ui-font);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--body);
+    background: var(--mist);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+a {
+    color: var(--teal-deep);
+    transition: color 0.2s ease, background 0.2s ease,
+                border-color 0.2s ease, transform 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    background: var(--ink);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+
+/* =========================================================
+   READING PROGRESS BAR
+   ========================================================= */
+
+.progress-track {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1200;
+    pointer-events: none;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+header.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(0, 166, 166, 0.22), transparent 38%),
+        radial-gradient(circle at 12% 88%, rgba(99, 214, 214, 0.10), transparent 34%),
+        var(--ink);
+    color: #fff;
+    padding: 104px 22px 96px;
+}
+
+/* faint blueprint grid, a nod to structured documentation */
+header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 62px 62px;
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 30%, transparent 78%);
+    mask-image: radial-gradient(circle at 50% 40%, #000 30%, transparent 78%);
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-inner h1 {
+    font-size: clamp(38px, 6.2vw, 62px);
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+}
+
+.hero-role {
+    font-family: var(--ui-font);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: var(--teal-light);
+    margin-bottom: 26px;
+}
+
+.hero-lede {
+    max-width: 68ch;
+    margin: 0 auto;
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.8;
+    color: #dbe5ef;
+}
+
+.hero-disciplines {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.hero-disciplines li {
+    list-style: none;
+    padding: 8px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 30px;
+    color: #e7eff7;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hero-actions {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 9px;
+    font-family: var(--ui-font);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+
+.button-primary {
+    background: var(--teal);
+    color: #fff;
+    border: 1px solid var(--teal);
+}
+
+.button-primary:hover {
+    background: var(--teal-deep);
+    border-color: var(--teal-deep);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 166, 166, 0.3);
+}
+
+.button-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.button-ghost:hover {
+    background: #fff;
+    color: var(--ink);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 14px rgba(16, 36, 63, 0.05);
+}
+
+.nav-inner {
+    position: relative;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+}
+
+.nav-mark {
+    font-family: var(--heading-font);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.2px;
+}
+
+.nav-mark span {
+    color: var(--teal);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: 8px 11px;
+    border-radius: 7px;
+    color: #3a4c60;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14.5px;
+}
+
+.nav-links a:hover {
+    color: var(--teal-deep);
+    background: #eaf6f6;
+}
+
+.nav-links a.is-active {
+    color: var(--teal-deep);
+    background: #e4f4f4;
+    font-weight: 600;
+}
+
+.nav-toggle {
+    display: none;
+    width: 42px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   SECTION SHELL
+   ========================================================= */
+
+section {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 64px 22px;
+}
+
+.section-head {
+    margin-bottom: 34px;
+    max-width: 62ch;
+}
+
+.section-head h2 {
+    position: relative;
+    font-size: clamp(27px, 3.6vw, 35px);
+    letter-spacing: -0.4px;
+    padding-bottom: 14px;
+    margin-bottom: 12px;
+}
+
+.section-head h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 58px;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--teal);
+}
+
+.section-head p {
+    font-size: 16px;
+    color: #62748a;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.85fr 1fr;
+    gap: 24px;
+}
+
+.about-intro {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    padding: 44px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+}
+
+.about-intro::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--teal);
+}
+
+.about-intro h3 {
+    font-size: clamp(24px, 3.2vw, 31px);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    max-width: 22ch;
+}
+
+.about-intro p {
+    max-width: 68ch;
+    margin-bottom: 14px;
+    line-height: 1.8;
+}
+
+.about-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.snapshot {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow-md);
+}
+
+.snapshot::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 50%;
+    top: -95px;
+    right: -85px;
+}
+
+.snapshot h3 {
+    position: relative;
+    z-index: 1;
+    color: var(--teal-light);
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.snapshot ul {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+}
+
+.snapshot li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    color: #d5e1ee;
+    font-size: 14.5px;
+    line-height: 1.55;
+}
+
+.snapshot li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.snapshot li b {
+    color: var(--teal-light);
+    font-family: var(--heading-font);
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+    min-width: 40px;
+}
+
+
+/* =========================================================
+   EXPERTISE AND SKILLS
+   ========================================================= */
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.expertise-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--surface);
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--teal);
+}
+
+.expertise-badge {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: #eaf6f6;
+    color: var(--teal-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--heading-font);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.expertise-card h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.expertise-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #62748a;
+    max-width: 48ch;
+}
+
+.skills-band {
+    margin-top: 34px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.skills-band h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.skills-band > p {
+    font-size: 14.5px;
+    color: #6b7c90;
+    margin-bottom: 20px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+}
+
+.skills-list li {
+    background: #f3f7f9;
+    border: 1px solid #dee7ed;
+    color: #34495e;
+    border-radius: 9px;
+    padding: 9px 15px;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.skills-list li:hover {
+    background: #e6f6f6;
+    color: var(--teal-deep);
+    border-color: #9edede;
+}
+
+
+/* =========================================================
+   CURRENTLY BUILDING
+   ========================================================= */
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.learning-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    color: #fff;
+    padding: 30px 28px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.learning-card::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 166, 166, 0.3), transparent 70%);
+    top: -75px;
+    right: -60px;
+}
+
+.learning-status {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(99, 214, 214, 0.14);
+    color: var(--teal-light);
+    border: 1px solid rgba(99, 214, 214, 0.36);
+    border-radius: 20px;
+    padding: 5px 13px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.learning-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
+}
+
+.learning-card h3 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.learning-card p {
+    position: relative;
+    z-index: 1;
+    color: #c4d2e1;
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.learning-proof {
+    position: relative;
+    z-index: 1;
+    padding-top: 16px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 13px;
+    color: #9db0c6;
+}
+
+.learning-proof a {
+    color: var(--teal-light);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(99, 214, 214, 0.45);
+}
+
+.learning-proof a:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+
+/* =========================================================
+   TOOLS
+   ========================================================= */
+
+.tools-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    border: none;
-    box-shadow: none;
 }
 
-/* TOOL CATEGORY */
 .tool-category {
-    background: #ffffff;
-    border: 1px solid #e3e8ee;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 15px;
     overflow: hidden;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* CATEGORY HOVER */
 .tool-category:hover {
     transform: translateY(-4px);
     border-color: #9edede;
-    box-shadow: 0 14px 30px rgba(23, 43, 77, 0.10);
+    box-shadow: var(--shadow-md);
 }
 
-/* CATEGORY HEADING */
 .tool-category h3 {
     position: relative;
-    margin: 0;
-    padding: 24px 28px 18px;
-    color: #172b4d;
-    font-size: 17px;
-    line-height: 1.4;
-    background: #ffffff;
+    padding: 24px 28px 16px;
+    font-size: 18px;
 }
 
-/* TEAL ACCENT */
 .tool-category h3::before {
     content: "";
     position: absolute;
@@ -839,1310 +773,1584 @@
     top: 0;
     width: 5px;
     height: 100%;
-    background: #00a6a6;
-    border-radius: 15px 0 0 0;
+    background: var(--teal);
 }
 
-/* TOOL LIST */
 .tool-list {
     list-style: none;
-    padding: 8px 28px 26px !important;
-    margin: 0 !important;
-    background: #ffffff;
+    padding: 6px 28px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-/* INDIVIDUAL TOOLS */
 .tool-list li {
     display: inline-flex;
     align-items: center;
-    background: #f5f8fa;
+    background: #f4f8fa;
     color: #34495e;
     border: 1px solid #dfe6eb;
     border-radius: 8px;
     padding: 9px 14px;
-    margin: 0 7px 8px 0;
     font-size: 13px;
     font-weight: 600;
-
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+    transition: background 0.3s ease, color 0.3s ease,
+                border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* CHECK MARK */
 .tool-list li::before {
-    content: "✓";
-    color: #00a6a6;
+    content: "\2713";
+    color: var(--teal);
     font-size: 11px;
-    font-weight: bold;
-    margin-right: 7px;
+    font-weight: 700;
+    margin-right: 8px;
 }
-
-
-/* =========================================
-   HOVER EFFECT
-   ========================================= */
-
-/*
-   When the user hovers anywhere over the
-   category, gently highlight all the tools inside it
-   (no size change).
-*/
 
 .tool-category:hover .tool-list li {
-    background: #e8f7f7;
-    color: #087f7f;
+    background: #e9f7f7;
+    color: var(--teal-deep);
     border-color: #9edede;
-    box-shadow: 0 7px 16px rgba(0, 166, 166, 0.15);
 }
-
-
-/* Slightly stronger effect when the
-   mouse is directly over an individual tool */
 
 .tool-category .tool-list li:hover {
-    background: #dff4f4;
-    color: #087f7f;
+    background: #ddf3f3;
     border-color: #79caca;
-    box-shadow: 0 10px 20px rgba(0, 166, 166, 0.20);
+    box-shadow: 0 8px 18px rgba(0, 166, 166, 0.18);
 }
 
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+/* =========================================================
+   WRITING SAMPLES
+   ========================================================= */
 
-@media (max-width: 800px) {
+.samples-grid {
+    display: grid;
+    gap: 22px;
+}
 
-    #tools .card {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+.sample-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    border-radius: var(--radius);
+    padding: 32px 34px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sample-card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.sample-kind {
+    display: inline-block;
+    background: #eaf6f6;
+    color: var(--teal-deep);
+    border: 1px solid #cdecec;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.sample-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.sample-card > p {
+    max-width: 72ch;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.sample-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    background: #f7fafb;
+    border: 1px solid #e7eef2;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+}
+
+.sample-meta div {
+    min-width: 0;
+}
+
+.sample-meta dt {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7b8b9c;
+    margin-bottom: 4px;
+}
+
+.sample-meta dd {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+.sample-deliverables {
+    padding-left: 20px;
+    margin-bottom: 22px;
+}
+
+.sample-deliverables li {
+    font-size: 14.5px;
+    margin-bottom: 7px;
+    color: #55677c;
+}
+
+.sample-deliverables li::marker {
+    color: var(--teal);
+}
+
+.sample-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 18px;
+    border-top: 1px solid #edf1f4;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #eaf6f6;
+    color: var(--teal-deep);
+    border: 1px solid #bfe6e6;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-button:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.link-button.is-quiet {
+    background: transparent;
+    border-color: var(--line);
+    color: #5b6c80;
+}
+
+.link-button.is-quiet:hover {
+    background: #f1f5f8;
+    color: var(--ink);
+    border-color: #cfd8e0;
+}
+
+.samples-note {
+    margin-top: 22px;
+    padding: 18px 22px;
+    background: #f7fafb;
+    border: 1px dashed #cdd9e2;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #62748a;
 }
 
 
-@media (max-width: 500px) {
+/* =========================================================
+   EXPERIENCE TIMELINE
+   ========================================================= */
 
-    #tools .card {
-        gap: 16px;
-    }
-
-    .tool-category h3 {
-        padding: 21px 23px 15px;
-        font-size: 16px;
-    }
-
-    .tool-list {
-        padding: 8px 23px 21px !important;
-    }
-
-    .tool-list li {
-        font-size: 12px;
-        padding: 7px 10px;
-    }
-}
-
-
-    /* =========================================
-       DOCUMENTATION SAMPLES
-       ========================================= */
-
-    #projects .card {
-        position: relative;
-        padding: 32px 35px;
-        border-left: 4px solid #00a6a6;
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    #projects .card:hover {
-        transform: translateX(5px);
-        box-shadow: 0 12px 28px rgba(23, 43, 77, 0.09);
-    }
-
-    #projects .card h3 {
-        font-size: 21px;
-    }
-
-    #projects .card p {
-        line-height: 1.7;
-    }
-
-    #projects .card ul {
-        margin-top: 10px;
-    }
-
-
-/* =========================================
-   PROFESSIONAL EXPERIENCE
-   ========================================= */
-
-#experience {
+.timeline {
     position: relative;
-}
-
-.experience-timeline {
-    position: relative;
-    margin-top: 20px;
     padding-left: 42px;
 }
 
-/* TIMELINE LINE */
-.experience-timeline::before {
+.timeline::before {
     content: "";
     position: absolute;
     left: 9px;
-    top: 10px;
-    bottom: 15px;
+    top: 12px;
+    bottom: 16px;
     width: 2px;
-    background: linear-gradient(
-        to bottom,
-        #00a6a6 0%,
-        #7fcaca 45%,
-        #dce5ea 100%
-    );
+    background: linear-gradient(to bottom, var(--teal) 0%, #7fcaca 45%, #dbe4ea 100%);
 }
 
-/* EXPERIENCE ITEM */
-.experience-item {
+.job {
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 }
 
-/* TIMELINE MARKER */
-.experience-marker {
+.job:last-child {
+    margin-bottom: 0;
+}
+
+.job-marker {
     position: absolute;
     left: -42px;
     top: 34px;
     width: 18px;
     height: 18px;
-    background: #ffffff;
-    border: 4px solid #00a6a6;
+    background: #fff;
+    border: 4px solid var(--teal);
     border-radius: 50%;
+    box-shadow: 0 0 0 5px var(--mist);
     z-index: 2;
-    box-shadow: 0 0 0 5px #f5f7fa;
 }
 
-/* EXPERIENCE CARD */
-.experience-card {
-    position: relative;
-    background: #ffffff;
+.job-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
     padding: 31px 34px;
-    border: 1px solid #e2e8ed;
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(23, 43, 77, 0.055);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.experience-card:hover {
+.job-card:hover {
     transform: translateX(5px);
     border-color: #b9dfe0;
-    box-shadow: 0 14px 30px rgba(23, 43, 77, 0.10);
+    box-shadow: var(--shadow-md);
 }
 
-/* FEATURED / CURRENT ROLE */
-.experience-item.featured .experience-card {
-    border-top: 4px solid #00a6a6;
-    box-shadow: 0 9px 26px rgba(23, 43, 77, 0.09);
+.job.is-featured .job-card {
+    border-top: 4px solid var(--teal);
 }
 
-.experience-item.featured .experience-marker {
+.job.is-featured .job-marker {
+    border-color: var(--teal-deep);
     width: 20px;
     height: 20px;
-    border-color: #087f7f;
 }
 
-/* HEADER */
-.experience-header {
+.job-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 25px;
+    gap: 24px;
     margin-bottom: 18px;
 }
 
-.experience-header h3 {
-    color: #172b4d;
+.job-head h3 {
     font-size: 22px;
-    line-height: 1.3;
-    margin: 0 0 5px;
+    margin-bottom: 4px;
 }
 
-.experience-header h4 {
-    color: #00a6a6;
-    font-size: 16px;
+.job-head h4 {
+    font-family: var(--ui-font);
+    color: var(--teal-deep);
+    font-size: 15.5px;
     font-weight: 600;
-    margin: 0 0 3px;
+    margin-bottom: 3px;
 }
 
-.experience-note {
+.job-note {
     display: block;
     color: #7b8794;
     font-size: 13px;
     font-style: italic;
 }
 
-/* DATE */
-.experience-date {
+.job-date {
     flex-shrink: 0;
-    background: #eef8f8;
-    color: #087f7f;
+    background: #eaf6f6;
+    color: var(--teal-deep);
     border: 1px solid #d2eeee;
     border-radius: 20px;
-    padding: 7px 13px;
-    font-size: 12px;
-    font-weight: 700;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
     white-space: nowrap;
 }
 
-/* CURRENT ROLE LABEL */
-.experience-current {
+.job-flag {
     display: inline-block;
     margin-bottom: 9px;
-    padding: 4px 9px;
-    background: #e4f5f5;
-    color: #087f7f;
-    border-radius: 4px;
-    font-size: 10px;
+    padding: 4px 10px;
+    background: #e2f4f4;
+    color: var(--teal-deep);
+    border-radius: 5px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1px;
 }
 
-/* ROLE SUMMARY */
-.experience-summary {
-    color: #52606d;
+.job-summary {
+    background: #f7fafb;
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    margin-bottom: 22px;
     font-size: 15px;
     line-height: 1.75;
-    padding: 16px 18px;
-    margin: 0 0 22px;
-    background: #f7f9fb;
-    border-left: 3px solid #00a6a6;
-    border-radius: 0 8px 8px 0;
+    max-width: 76ch;
 }
 
-/* EXPERIENCE BULLETS */
-.experience-card ul {
+.job-card ul {
     padding-left: 21px;
-    margin: 0;
 }
 
-.experience-card li {
-    color: #52606d;
-    font-size: 14px;
+.job-card li {
+    font-size: 14.5px;
     line-height: 1.7;
     margin-bottom: 10px;
+    max-width: 78ch;
 }
 
-.experience-card li:last-child {
+.job-card li:last-child {
     margin-bottom: 0;
 }
 
-.experience-card li::marker {
-    color: #00a6a6;
+.job-card li::marker {
+    color: var(--teal);
 }
 
-.experience-card strong {
-    color: #34495e;
-    font-weight: 700;
+.job-card strong {
+    color: #2f4356;
+    font-weight: 600;
 }
 
-/* SKILL TAGS */
-.experience-tags {
+.job-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
     margin-top: 22px;
     padding-top: 18px;
-    border-top: 1px solid #edf0f3;
+    padding-left: 0;
+    border-top: 1px solid #edf1f4;
+    list-style: none;
 }
 
-.experience-tags span {
+.job-tags li {
     background: #f1f5f8;
-    color: #52606d;
-    border: 1px solid #e0e6eb;
+    color: #55677c;
+    border: 1px solid #e0e7ec;
     border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 11px;
+    padding: 5px 11px;
+    font-size: 11.5px;
     font-weight: 600;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+    margin: 0;
+    max-width: none;
+    transition: background 0.2s ease, color 0.2s ease,
+                border-color 0.2s ease, transform 0.2s ease;
 }
 
-.experience-tags span:hover {
-    background: #e4f5f5;
-    color: #087f7f;
+.job-tags li:hover {
+    background: #e2f4f4;
+    color: var(--teal-deep);
     border-color: #9edede;
     transform: translateY(-2px);
 }
 
 
-/* =========================================
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-card::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    top: -160px;
+    left: -110px;
+}
+
+.contact-card h3 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: clamp(23px, 3.4vw, 30px);
+    margin-bottom: 14px;
+}
+
+.contact-card p {
+    position: relative;
+    z-index: 1;
+    max-width: 58ch;
+    margin: 0 auto 28px;
+    color: #d3dfec;
+}
+
+.contact-links {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+}
+
+.contact-links a {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.contact-links a:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER AND BACK TO TOP
+   ========================================================= */
+
+footer {
+    background: #0b1a2e;
+    color: #b9c8d9;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 13.5px;
+}
+
+footer a {
+    color: var(--teal-light);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-size: 19px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    box-shadow: var(--shadow-md);
+    z-index: 900;
+}
+
+.to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.to-top:hover {
+    background: var(--teal-deep);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+}
+
+
+/* =========================================================
    RESPONSIVE
-   ========================================= */
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 960px) {
 
-    .experience-timeline {
+    .about-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 860px) {
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 14px 26px rgba(16, 36, 63, 0.10);
+        padding: 10px 14px 16px;
+    }
+
+    .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    header.hero {
+        padding: 78px 20px 72px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    .expertise-grid,
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro {
+        padding: 32px 26px;
+    }
+
+    .sample-meta {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .timeline {
         padding-left: 30px;
     }
 
-    .experience-timeline::before {
+    .timeline::before {
         left: 5px;
     }
 
-    .experience-marker {
+    .job-marker {
         left: -30px;
     }
 
-    .experience-header {
+    .job-head {
         flex-direction: column;
         gap: 10px;
     }
 
-    .experience-date {
+    .job-date {
         align-self: flex-start;
     }
 
-    .experience-card {
-        padding: 27px 25px;
+    .job-card,
+    .sample-card {
+        padding: 26px 24px;
     }
 }
 
+@media (max-width: 520px) {
 
-@media (max-width: 500px) {
+    .hero-disciplines {
+        flex-direction: column;
+        align-items: center;
+    }
 
-    .experience-timeline {
+    .button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .timeline {
         padding-left: 25px;
     }
 
-    .experience-timeline::before {
+    .timeline::before {
         left: 4px;
     }
 
-    .experience-marker {
+    .job-marker {
         left: -25px;
         width: 15px;
         height: 15px;
         border-width: 3px;
     }
 
-    .experience-card {
-        padding: 24px 20px;
-        border-radius: 12px;
-    }
-
-    .experience-header h3 {
+    .job-head h3 {
         font-size: 19px;
     }
 
-    .experience-header h4 {
-        font-size: 15px;
+    .job-card li,
+    .sample-deliverables li {
+        font-size: 13.5px;
     }
 
-    .experience-date {
-        font-size: 11px;
+    .contact-card {
+        padding: 36px 22px;
     }
 
-    .experience-card li {
-        font-size: 13px;
-    }
-
-    .experience-summary {
-        font-size: 14px;
-        line-height: 1.65;
+    .skills-band {
+        padding: 26px 22px;
     }
 }
-
-    /* =========================================
-       CONTACT
-       ========================================= */
-
-    #contact .card {
-        text-align: center;
-        padding: 40px;
-    }
-
-    #contact .card p {
-        max-width: 650px;
-        margin: 0 auto 25px;
-    }
-
-    #contact .card ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    #contact .card li {
-        display: inline-block;
-        margin: 5px 8px;
-    }
-
-    #contact .card a {
-        display: inline-block;
-        padding: 13px 26px;
-        background: #eef8f8;
-        color: #087f7f;
-        border: 2px solid #087f7f;
-        border-radius: 20px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 16px;
-    }
-
-    #contact .card a:hover {
-        background: #00a6a6;
-        color: white;
-        border-color: #00a6a6;
-        transform: translateY(-2px);
-    }
-
-    /* =========================================
-       FOOTER
-       ========================================= */
-
-    footer {
-        background: #172b4d;
-        color: #d7e0ea;
-        text-align: center;
-        padding: 30px 20px;
-        margin-top: 20px;
-    }
-
-    footer p {
-        font-size: 13px;
-    }
-
-    footer a {
-        color: #63d6d6;
-    }
-
-
-    /* =========================================
-       TABLET
-       ========================================= */
-
-    @media (max-width: 900px) {
-
-        header {
-            padding: 80px 20px;
-        }
-
-        header h1 {
-            font-size: 42px;
-        }
-
-        .about-hero {
-            grid-template-columns: 1fr;
-        }
-
-        .about-stat {
-            min-height: 250px;
-        }
-
-        .about-expertise {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .skills {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        #tools .card {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-    }
-
-
-    /* =========================================
-       MOBILE
-       ========================================= */
-
-    @media (max-width: 600px) {
-
-        header {
-            padding: 70px 20px;
-        }
-
-        header h1 {
-            font-size: 34px;
-        }
-
-        header h2 {
-            font-size: 17px;
-        }
-
-        .hero-description {
-            font-size: 15px;
-        }
-
-        .hero-highlights {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        nav {
-            padding: 12px 8px;
-        }
-
-        nav a {
-            margin: 4px 7px;
-            font-size: 13px;
-        }
-
-        section {
-            padding: 35px 18px;
-        }
-
-        section h2 {
-            font-size: 27px;
-        }
-
-        .about-intro {
-            padding: 30px 25px;
-        }
-
-        .about-intro h3 {
-            font-size: 25px;
-        }
-
-        .about-expertise {
-            grid-template-columns: 1fr;
-        }
-
-        .skills {
-            grid-template-columns: 1fr;
-        }
-
-        .card {
-            padding: 25px;
-        }
-
-        #projects .card,
-        #experience .card {
-            padding: 25px 25px 25px 30px;
-        }
-
-        #contact .card {
-            padding: 30px 20px;
-        }
-
-        .button {
-            width: 90%;
-            max-width: 280px;
-        }
-
-        .stat-number {
-            font-size: 58px;
-        }
-    }
 
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="hero-content">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="progress-track" aria-hidden="true">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<header class="hero">
+    <div class="hero-inner">
 
         <h1>Dipanjan Mukherjee</h1>
 
-        <p class="hero-tagline">SENIOR TECHNICAL WRITER</p>
+        <p class="hero-role">Senior Technical Writer</p>
 
-        <h2>
-            Technical Documentation <span>•</span>
-            Information Architecture <span>•</span>
-            Content Development
-        </h2>
-
-        <p class="hero-description">
-            I transform complex products, processes and technologies into
-            clear, structured and user-focused documentation that helps
-            users understand, configure and use products effectively.
+        <p class="hero-lede">
+            I turn complex products, processes and technologies into clear,
+            structured documentation that helps people install, configure
+            and actually use what they have bought.
         </p>
 
-        <div class="hero-highlights">
-            <span>Technical Documentation</span>
-            <span>Content Development</span>
-            <span>Copy Editing</span>
-        </div>
+        <ul class="hero-disciplines">
+            <li>Technical documentation</li>
+            <li>Information architecture</li>
+            <li>Content development</li>
+            <li>Copy editing</li>
+        </ul>
 
-        <div class="buttons">
-            <a href="Dipanjan_Mukherjee_Resume.pdf" download class="button primary-button">Download Resume</a>
-            <a href="#contact" class="button secondary-button">Contact Me</a>
+        <div class="hero-actions">
+            <!-- Keep Dipanjan_Mukherjee_Resume.pdf in the same folder as index.html -->
+            <a href="Dipanjan_Mukherjee_Resume.pdf" download class="button button-primary">Download resume</a>
+            <a href="#samples" class="button button-ghost">See writing samples</a>
         </div>
 
     </div>
 </header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#learning">Learning</a>
-    <a href="#skills">Skills</a>
-    <a href="#tools">Tools</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+<nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+
+        <a class="nav-mark" href="#main">Dipanjan<span>.</span></a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false"
+                aria-controls="navLinks" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#samples">Samples</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
 </nav>
 
-<section id="about">
-    <h2>About Me</h2>
+<main id="main">
 
-    <div class="about-hero">
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
+
+<section id="about" class="reveal">
+
+    <div class="section-head">
+        <h2>About</h2>
+        <p>Nineteen years of writing, editing and documenting, most of it spent
+           making enterprise software understandable.</p>
+    </div>
+
+    <div class="about-grid">
 
         <div class="about-intro">
-            <span class="about-eyebrow">19+ YEARS OF EXPERIENCE</span>
-
-            <h3>
-                Turning complex information into
-                <span>clear, user-friendly documentation.</span>
-            </h3>
+            <h3>Turning complex information into documentation people can follow.</h3>
 
             <p>
-                I'm a Senior Technical Writer with 19+ years of experience
-                creating technical documentation, structured content and
-                editorial-quality copy for enterprise software products.
-                My focus areas include documentation strategy, information
-                architecture, structured authoring and API documentation.
+                I am a Senior Technical Writer with 19+ years of experience creating
+                technical documentation, structured content and editorial-quality copy
+                for enterprise software products. My focus areas are documentation
+                strategy, information architecture, structured authoring and
+                API documentation.
             </p>
 
             <p>
-                I partner with Product, Engineering, QA and subject matter
-                experts across the full documentation lifecycle — from
-                requirements gathering to publishing — to deliver accurate,
-                user-focused content for complex, regulated industries
-                including Healthcare and Banking.
+                I work with Product, Engineering, QA and subject matter experts across
+                the full documentation lifecycle, from requirements gathering to
+                publishing, to deliver accurate, user-focused content for complex,
+                regulated industries including Healthcare and Banking.
             </p>
         </div>
 
-        <div class="about-stat">
-            <div class="stat-label">Career Snapshot</div>
-
-            <ul class="stat-list">
-                <li><strong>19+</strong> Years in writing &amp; documentation</li>
-                <li><strong>15+</strong> Products documented from scratch</li>
-                <li><strong>4+</strong> Industries catered to: Healthcare, Mobile, Banking &amp; Enterprise SaaS</li>
-                <li><strong>3+</strong> AI Agents created to enhance documentation workflows</li>
+        <aside class="snapshot">
+            <h3>Career snapshot</h3>
+            <ul>
+                <li><b>19+</b> Years in writing and documentation</li>
+                <li><b>15+</b> Products documented from scratch</li>
+                <li><b>4+</b> Industries: Healthcare, Mobile, Banking, Enterprise SaaS</li>
+                <li><b>3+</b> AI agents built to support documentation workflows</li>
             </ul>
-        </div>
+        </aside>
 
     </div>
 
-    <h2 id="expertise">Areas of Expertise</h2>
+</section>
 
-    <div class="about-expertise">
-         <div class="expertise-card">
-            <div class="expertise-icon">TD</div>
 
-            <div class="expertise-content">
-                <h3>Technical Documentation</h3>
+<!-- =========================================================
+     EXPERTISE AND SKILLS
+     ========================================================= -->
 
+<section id="expertise" class="reveal">
+
+    <div class="section-head">
+        <h2>Expertise</h2>
+        <p>What I am hired to do, and the craft skills underneath it.</p>
+    </div>
+
+    <div class="expertise-grid">
+
+        <article class="expertise-card">
+            <div class="expertise-badge" aria-hidden="true">TD</div>
+            <div>
+                <h3>Technical documentation</h3>
                 <p>
                     User guides, installation guides, configuration guides,
                     API references, release notes and online help.
                 </p>
             </div>
-        </div>
+        </article>
 
-
-        <div class="expertise-card">
-            <div class="expertise-icon">⌘</div>
-
-            <div class="expertise-content">
-                <h3>Information Architecture</h3>
-
+        <article class="expertise-card">
+            <div class="expertise-badge" aria-hidden="true">IA</div>
+            <div>
+                <h3>Information architecture</h3>
                 <p>
-                    Structuring complex product and technical information into
-                    logical, reusable and scalable documentation systems.
+                    Structuring complex product information into logical, reusable
+                    and scalable documentation systems.
                 </p>
             </div>
-        </div>
+        </article>
 
-
-        <div class="expertise-card">
-            <div class="expertise-icon">✓</div>
-
-            <div class="expertise-content">
-                <h3>SEO Content Writing & Editing</h3>
-
+        <article class="expertise-card">
+            <div class="expertise-badge" aria-hidden="true">SEO</div>
+            <div>
+                <h3>Content writing and editing</h3>
                 <p>
-                    Writing keyword-based content and ensuring clarity, consistency, and
-                    adherence to editorial standards.
+                    Keyword-based web content, plus editorial review for clarity,
+                    consistency and adherence to style standards.
                 </p>
             </div>
-        </div>
+        </article>
 
-
-        <div class="expertise-card ai-card">
-            <div class="expertise-icon">AI</div>
-
-            <div class="expertise-content">
-                <h3>AI-Assisted Documentation</h3>
-
+        <article class="expertise-card">
+            <div class="expertise-badge" aria-hidden="true">AI</div>
+            <div>
+                <h3>AI-assisted documentation</h3>
                 <p>
-                    Using AI-assisted workflows to accelerate content creation,
-                    improve content review, and enhance editorial productivity.
+                    Building and reviewing AI-assisted workflows that speed up drafting
+                    and editorial checks without sacrificing technical accuracy.
                 </p>
+            </div>
+        </article>
 
-                </div>
-        </div>
+    </div>
 
+    <div class="skills-band">
+        <h3>Craft skills</h3>
+        <p>The day-to-day work behind those four areas.</p>
+
+        <ul class="skills-list">
+            <li>Technical writing</li>
+            <li>Software documentation</li>
+            <li>User manual development</li>
+            <li>Administrator guides</li>
+            <li>Release notes</li>
+            <li>Online help authoring</li>
+            <li>UI text review</li>
+            <li>Web content writing</li>
+            <li>SEO content writing</li>
+            <li>Copy editing</li>
+            <li>Content editing</li>
+            <li>eLearning content</li>
+        </ul>
     </div>
 
 </section>
 
-<section id="learning">
-    <h2>Currently Learning &amp; Developing</h2>
+
+<!-- =========================================================
+     CURRENTLY BUILDING
+     ========================================================= -->
+
+<section id="learning" class="reveal">
+
+    <div class="section-head">
+        <h2>Currently building</h2>
+        <p>Areas I am deliberately deepening right now, with the work to show for it.</p>
+    </div>
 
     <div class="learning-grid">
 
-        <div class="learning-card">
-            <span class="learning-badge">IN PROGRESS</span>
-            <h3>API Documentation</h3>
+        <article class="learning-card">
+            <span class="learning-status">Actively building</span>
+            <h3>API documentation</h3>
             <p>
-                Building skills in writing developer-facing API references —
-                endpoints, request/response structures, and usage examples.
+                Writing developer-facing references: endpoints, request and response
+                structures, authentication and worked usage examples.
             </p>
-            <div class="learning-progress">
-                <div class="learning-progress-bar">
-                    <div class="learning-progress-fill" style="width: 25%;"></div>
-                </div>
-                <span class="learning-progress-label">Early stages</span>
-            </div>
-        </div>
+            <p class="learning-proof">
+                <!-- Point this at your API reference sample once it is published -->
+                Sample: <a href="#samples">Payments API reference</a>
+            </p>
+        </article>
 
-        <div class="learning-card">
-            <span class="learning-badge">IN PROGRESS</span>
-            <h3>Docs-as-Code</h3>
+        <article class="learning-card">
+            <span class="learning-status">Hands on</span>
+            <h3>Docs as code</h3>
             <p>
-                Developing hands-on experience with Git, GitHub, and Markdown
-                for version-controlled, developer-friendly documentation.
+                Git, GitHub and Markdown for version-controlled documentation that
+                lives alongside the product it describes.
             </p>
-            <div class="learning-progress">
-                <div class="learning-progress-bar">
-                    <div class="learning-progress-fill" style="width: 55%;"></div>
-                </div>
-                <span class="learning-progress-label">Getting hands on</span>
-            </div>
-        </div>
+            <p class="learning-proof">
+                <!-- Replace with your own repository link -->
+                Sample: <a href="https://github.com/dipanjanwriter" target="_blank" rel="noopener">Docs repo on GitHub</a>
+            </p>
+        </article>
+
+        <article class="learning-card">
+            <span class="learning-status">Deepening</span>
+            <h3>Structured and unstructured authoring</h3>
+            <p>
+                Topic-based, reusable content in a CCMS alongside long-form
+                unstructured writing, and knowing which one a project needs.
+            </p>
+            <p class="learning-proof">
+                Applied in MadCap Flare and IXIA CCMS
+            </p>
+        </article>
 
     </div>
+
 </section>
 
-<section id="skills">
-    <h2>Skills</h2>
 
-    <div class="skill-badges">
-        <div class="skill-badge">
-            <div class="skill-badge-icon">TW</div>
-            <span class="skill-name">Technical Writing</span>
-        </div>
+<!-- =========================================================
+     TOOLS
+     ========================================================= -->
 
-        <div class="skill-badge">
-            <div class="skill-badge-icon">Doc</div>
-            <span class="skill-name">Software Documentation</span>
-        </div>
+<section id="tools" class="reveal">
 
-        <div class="skill-badge">
-            <div class="skill-badge-icon">Web</div>
-            <span class="skill-name">Web Content Writing</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">SEO</div>
-            <span class="skill-name">SEO Content Writing</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">Cpy</div>
-            <span class="skill-name">Copy Editing</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">UM</div>
-            <span class="skill-name">User Manual Development</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">ICG</div>
-            <span class="skill-name">Administrator Guides Creation</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">RN</div>
-            <span class="skill-name">Release Notes Creation</span>
-        </div>
-
-        <div class="skill-badge">
-            <div class="skill-badge-icon">CE</div>
-            <span class="skill-name">Content Editing</span>
-        </div>
+    <div class="section-head">
+        <h2>Tools</h2>
+        <p>What I author, track and publish with.</p>
     </div>
-</section>
 
-<section id="tools">
-    <h2>Tools & Technologies</h2>
+    <div class="tools-grid">
 
-    <div class="card">
-
-        <!-- Technical Documentation -->
         <div class="tool-category">
-            <h3>Technical Documentation &amp; Authoring</h3>
+            <h3>Authoring and publishing</h3>
             <ul class="tool-list">
                 <li>MadCap Flare</li>
                 <li>MadCap IXIA CCMS</li>
+                <li>Markdown</li>
+                <li>Git and GitHub</li>
             </ul>
         </div>
 
-        <!-- Project & Collaboration -->
         <div class="tool-category">
-            <h3>Project &amp; Collaboration</h3>
+            <h3>Project and collaboration</h3>
             <ul class="tool-list">
                 <li>Atlassian Jira</li>
                 <li>Atlassian Confluence</li>
             </ul>
         </div>
 
-        <!-- AI & Content Productivity -->
         <div class="tool-category">
-            <h3>AI &amp; Content Productivity</h3>
+            <h3>AI and content productivity</h3>
             <ul class="tool-list">
+                <li>Microsoft Copilot Studio</li>
                 <li>Microsoft Copilot</li>
                 <li>ChatGPT</li>
             </ul>
         </div>
 
-        <!-- Microsoft Office -->
         <div class="tool-category">
             <h3>Microsoft Office</h3>
             <ul class="tool-list">
-                <li>Microsoft Word</li>
-                <li>Microsoft PowerPoint</li>
-                <li>Microsoft Excel</li>
+                <li>Word</li>
+                <li>PowerPoint</li>
+                <li>Excel</li>
             </ul>
         </div>
 
     </div>
+
 </section>
 
-<section id="projects">
-    <h2>Documentation Samples</h2>
 
-    <div class="card">
-        <h3>Project 1 — Product Documentation</h3>
+<!-- =========================================================
+     WRITING SAMPLES
 
-        <p>
-            A sample documentation project demonstrating how complex
-            technical information can be transformed into clear,
-            task-oriented documentation.
-        </p>
+     ACTION NEEDED: replace every href="#" below with a link to
+     the real sample (a PDF, a hosted help page, or a Markdown
+     file in your GitHub repo), and edit the audience, tools and
+     role lines so they describe your actual work.
+     ========================================================= -->
 
-        <br>
+<section id="samples" class="reveal">
 
-        <p><strong>Deliverables:</strong></p>
+    <div class="section-head">
+        <h2>Writing samples</h2>
+        <p>Short, self-contained pieces that show how I structure information for a
+           specific reader. Proprietary work is summarised rather than reproduced.</p>
+    </div>
 
-            <ul style="padding-left: 30px;">
-                <li>User guide</li>
-                <li>How-to articles</li>
-                <li>Reference documentation</li>
+    <div class="samples-grid">
+
+        <article class="sample-card">
+            <span class="sample-kind">API reference</span>
+            <h3>Payments API, endpoint reference</h3>
+
+            <p>
+                A reference for a small REST API, covering authentication, three core
+                endpoints, request and response schemas, error codes and a worked
+                example for each call.
+            </p>
+
+            <dl class="sample-meta">
+                <div>
+                    <dt>Audience</dt>
+                    <dd>Backend developers integrating the API</dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd>Markdown, Git, Postman</dd>
+                </div>
+                <div>
+                    <dt>My role</dt>
+                    <dd>Sole author: structure, drafting and examples</dd>
+                </div>
+            </dl>
+
+            <ul class="sample-deliverables">
+                <li>Authentication and quickstart topic</li>
+                <li>Endpoint reference with parameter tables</li>
+                <li>Error-code reference and troubleshooting notes</li>
             </ul>
+
+            <div class="sample-actions">
+                <a class="link-button" href="#">Read the sample</a>
+                <a class="link-button is-quiet" href="#">View source on GitHub</a>
+            </div>
+        </article>
+
+        <article class="sample-card">
+            <span class="sample-kind">Task-based user guide</span>
+            <h3>Module reference guide, configuration walkthrough</h3>
+
+            <p>
+                A task-oriented guide that takes an administrator from a clean install
+                through to a working configuration, written so each task can be
+                completed without reading the one before it.
+            </p>
+
+            <dl class="sample-meta">
+                <div>
+                    <dt>Audience</dt>
+                    <dd>System administrators and implementation consultants</dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd>MadCap Flare, Jira, Confluence</dd>
+                </div>
+                <div>
+                    <dt>My role</dt>
+                    <dd>Author, from requirements gathering to publishing</dd>
+                </div>
+            </dl>
+
+            <ul class="sample-deliverables">
+                <li>Installation and prerequisites</li>
+                <li>Step-by-step configuration tasks</li>
+                <li>Reference tables for settings and permissions</li>
+            </ul>
+
+            <div class="sample-actions">
+                <a class="link-button" href="#">Read the sample</a>
+                <a class="link-button is-quiet" href="#">Download PDF</a>
+            </div>
+        </article>
+
+        <article class="sample-card">
+            <span class="sample-kind">Knowledge base</span>
+            <h3>Support knowledge base, how-to articles</h3>
+
+            <p>
+                A set of short articles written to be found by search and read in under
+                two minutes, each answering one question with a single clear outcome.
+            </p>
+
+            <dl class="sample-meta">
+                <div>
+                    <dt>Audience</dt>
+                    <dd>End users and first-line support</dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd>Markdown, structured templates</dd>
+                </div>
+                <div>
+                    <dt>My role</dt>
+                    <dd>Author and information architect</dd>
+                </div>
+            </dl>
+
+            <ul class="sample-deliverables">
+                <li>Article template and writing standards</li>
+                <li>Category and tagging structure</li>
+                <li>Six how-to articles</li>
+            </ul>
+
+            <div class="sample-actions">
+                <a class="link-button" href="#">Read the sample</a>
+            </div>
+        </article>
+
+        <article class="sample-card">
+            <span class="sample-kind">Technical article</span>
+            <h3>Explaining a complex concept in plain language</h3>
+
+            <p>
+                A longer explanatory piece that introduces a technical concept to a
+                non-specialist reader, using one running example instead of jargon.
+            </p>
+
+            <dl class="sample-meta">
+                <div>
+                    <dt>Audience</dt>
+                    <dd>Product and business stakeholders</dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd>Markdown</dd>
+                </div>
+                <div>
+                    <dt>My role</dt>
+                    <dd>Sole author</dd>
+                </div>
+            </dl>
+
+            <div class="sample-actions">
+                <a class="link-button" href="#">Read the article</a>
+            </div>
+        </article>
+
     </div>
 
-    <div class="card">
-        <h3>Project 2 — Knowledge Base</h3>
-
-        <p>
-            A structured knowledge-base project designed to help users
-            quickly find answers and complete common tasks.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Project 3 — Technical Article</h3>
-
-        <p>
-            A sample technical article explaining a complex concept
-            in simple, user-friendly language.
-        </p>
-    </div>
 </section>
 
 
+<!-- =========================================================
+     EXPERIENCE
+     ========================================================= -->
 
-<section id="experience">
-    <h2>Professional Experience</h2>
+<section id="experience" class="reveal">
 
-    <div class="experience-timeline">
+    <div class="section-head">
+        <h2>Experience</h2>
+        <p>From editorial desks to enterprise product documentation.</p>
+    </div>
+
+    <div class="timeline">
 
         <!-- HYLAND SOFTWARE -->
-        <div class="experience-item featured">
-            <div class="experience-marker"></div>
+        <article class="job is-featured">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
-                        <span class="experience-current">MOST RECENT</span>
+                        <span class="job-flag">Most recent</span>
                         <h3>Technical Writer 2</h3>
                         <h4>Hyland Software</h4>
                     </div>
-                    <span class="experience-date">Nov 2020 – Aug 2026</span>
+                    <span class="job-date">Nov 2020 &ndash; Aug 2026</span>
                 </div>
 
-                <p class="experience-summary">
+                <p class="job-summary">
                     Developed customer-facing product documentation and AI-assisted
-                    documentation workflows while collaborating with cross-functional
-                    Agile teams to deliver accurate, release-ready content.
+                    documentation workflows, working with cross-functional Agile teams
+                    to deliver accurate, release-ready content.
                 </p>
 
                 <ul>
                     <li>
                         Developed and maintained customer-facing
-                        <strong>Module Reference Guides</strong> covering product
-                        overview, installation, configuration, and usage across
-                        Healthcare, Banking, and other industries.
+                        <strong>module reference guides</strong> covering product overview,
+                        installation, configuration and usage across Healthcare, Banking
+                        and other industries.
                     </li>
-
                     <li>
                         Created documentation from scratch for products including
-                        <strong>Hyland Clinician Window, OneContent,
-                        Perceptive AP Invoice,</strong> and
-                        <strong>Hyland AP Invoice Approval</strong>.
+                        <strong>Hyland Clinician Window, OneContent, Perceptive AP Invoice</strong>
+                        and <strong>Hyland AP Invoice Approval</strong>.
                     </li>
-
                     <li>
-                        Collaborated with Product Owners, Developers, and Quality
-                        Analysts throughout Agile development and release cycles
-                        to identify documentation requirements, track changes,
-                        and deliver release-aligned content.
+                        Worked with Product Owners, Developers and Quality Analysts through
+                        Agile development and release cycles to identify documentation
+                        requirements, track changes and deliver release-aligned content.
                     </li>
-
                     <li>
-                        Developed an <strong>AI Agent using Microsoft Copilot Studio</strong>
-                        to analyze JIRA stories and development tickets, identify
-                        documentation-relevant information, and generate initial drafts.
+                        Built an <strong>AI agent using Microsoft Copilot Studio</strong> that
+                        analyses Jira stories and development tickets, identifies
+                        documentation-relevant information and generates initial drafts.
                     </li>
-
                     <li>
-                        Developed an AI-assisted editorial workflow using the
-                        <strong>Hyland Style Guide</strong> to streamline language,
-                        grammar, and style reviews.
+                        Built an AI-assisted editorial workflow based on the
+                        <strong>Hyland Style Guide</strong> to streamline language, grammar
+                        and style reviews.
                     </li>
-
                     <li>
-                        Reviewed and validated AI-generated documentation to identify
-                        factual, technical, and contextual inaccuracies before publication.
+                        Reviewed AI-generated documentation to catch factual, technical and
+                        contextual inaccuracies before publication.
                     </li>
-
                     <li>
-                        Used <strong>MadCap Flare</strong> to structure, format, and
-                        publish customer-facing documentation in PDF and online-help formats.
+                        Used <strong>MadCap Flare</strong> to structure, format and publish
+                        documentation in PDF and online-help formats.
                     </li>
-
                     <li>
-                        Edited UI messages for grammar, clarity, consistency, and
-                        adherence to language and documentation standards.
-                    </li>
-
-                    <li>
-                        Translated complex software functionality and technical
-                        information into clear, structured, user-oriented documentation.
-                    </li>
-
-                    <li>
-                        Combined technical-writing, editorial, and product knowledge
-                        with AI-assisted workflows to improve documentation efficiency,
-                        quality, and consistency.
+                        Edited UI messages for grammar, clarity, consistency and adherence
+                        to documentation standards.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>Technical Documentation</span>
-                    <span>AI-Assisted Documentation</span>
-                    <span>Microsoft Copilot Studio</span>
-                    <span>MadCap Flare</span>
-                    <span>JIRA</span>
-                    <span>Agile</span>
-                </div>
+                <ul class="job-tags">
+                    <li>Technical documentation</li>
+                    <li>AI-assisted documentation</li>
+                    <li>Microsoft Copilot Studio</li>
+                    <li>MadCap Flare</li>
+                    <li>Jira</li>
+                    <li>Agile</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
 
         <!-- ENSIM -->
-        <div class="experience-item">
-            <div class="experience-marker"></div>
+        <article class="job">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
                         <h3>Senior Technical Writer</h3>
                         <h4>Ensim India Pvt. Ltd.</h4>
-                        <span class="experience-note">
-                            Erstwhile Four Loops Solutions Pvt. Ltd., Kolkata
-                        </span>
+                        <span class="job-note">Erstwhile Four Loops Solutions Pvt. Ltd., Kolkata</span>
                     </div>
-
-                    <span class="experience-date">Sep 2015 – Oct 2020</span>
+                    <span class="job-date">Sep 2015 &ndash; Oct 2020</span>
                 </div>
 
                 <ul>
                     <li>
-                        Managed technical publication projects from inception to
-                        delivery, ensuring documentation met release timelines.
+                        Managed technical publication projects from inception to delivery,
+                        keeping documentation aligned with release timelines.
                     </li>
-
                     <li>
-                        Developed online help using <strong>MadCap Flare</strong>
-                        and Microsoft Word for an in-house OSS-BSS platform and
-                        its connectors.
+                        Developed online help in <strong>MadCap Flare</strong> and Microsoft
+                        Word for an in-house OSS-BSS platform and its connectors.
                     </li>
-
                     <li>
                         Created and maintained customer-facing
-                        <strong>Installation Guides, Product Guides, and Release Notes</strong>.
+                        <strong>installation guides, product guides and release notes</strong>.
                     </li>
-
                     <li>
-                        Collaborated with global teams to establish consistent
-                        documentation structures, formats, and content practices.
+                        Worked with global teams to establish consistent documentation
+                        structures, formats and content practices.
                     </li>
-
                     <li>
-                        Edited UI messages for accuracy, clarity, and consistency.
+                        Edited UI messages for accuracy, clarity and consistency.
                     </li>
-
                     <li>
-                        Developed and contributed to <strong>eLearning and training
-                        content</strong>, transforming technical product information
-                        into learner-friendly instructional material.
+                        Developed <strong>eLearning and training content</strong>, turning
+                        technical product information into learner-friendly material.
                     </li>
-
                     <li>
-                        Trained and mentored team members on documentation processes
-                        and tools.
+                        Trained and mentored team members on documentation processes and tools.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>Technical Publications</span>
-                    <span>MadCap Flare</span>
-                    <span>Online Help</span>
-                    <span>eLearning</span>
-                    <span>Mentoring</span>
-                </div>
+                <ul class="job-tags">
+                    <li>Technical publications</li>
+                    <li>MadCap Flare</li>
+                    <li>Online help</li>
+                    <li>eLearning</li>
+                    <li>Mentoring</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
 
         <!-- SOFTZ SOLUTIONS -->
-        <div class="experience-item">
-            <div class="experience-marker"></div>
+        <article class="job">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
                         <h3>Senior Content Writer</h3>
                         <h4>Softz Solutions Pvt. Ltd.</h4>
                     </div>
-
-                    <span class="experience-date">Nov 2013 – Sep 2015</span>
+                    <span class="job-date">Nov 2013 &ndash; Sep 2015</span>
                 </div>
 
                 <ul>
                     <li>
-                        Led the content team and managed content development
-                        activities across multiple projects.
+                        Led the content team and managed content development across
+                        multiple projects.
                     </li>
-
                     <li>
-                        Created and edited <strong>SEO-focused website content,
-                        blogs, and marketing content</strong> for in-house and
-                        client websites, including MyPrivateTutor.com.
+                        Created and edited <strong>SEO-focused website content, blogs and
+                        marketing content</strong> for in-house and client websites,
+                        including MyPrivateTutor.com.
                     </li>
-
                     <li>
-                        Developed PowerPoint presentations and learning-oriented
-                        materials in collaboration with designers and infographic teams.
+                        Developed presentations and learning-oriented material with
+                        designers and infographic teams.
                     </li>
-
                     <li>
-                        Contributed to the development and organization of
-                        digital and instructional content.
+                        Contributed to the development and organisation of digital and
+                        instructional content.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>Content Strategy</span>
-                    <span>SEO Content</span>
-                    <span>Marketing Content</span>
-                    <span>Team Leadership</span>
-                </div>
+                <ul class="job-tags">
+                    <li>Content strategy</li>
+                    <li>SEO content</li>
+                    <li>Marketing content</li>
+                    <li>Team leadership</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
 
         <!-- FREELANCE -->
-        <div class="experience-item">
-            <div class="experience-marker"></div>
+        <article class="job">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
-                        <h3>Freelance Content Writer &amp; Translator</h3>
+                        <h3>Freelance Content Writer and Translator</h3>
                     </div>
-
-                    <span class="experience-date">Jul 2011 – Oct 2013</span>
+                    <span class="job-date">Jul 2011 &ndash; Oct 2013</span>
                 </div>
 
                 <ul>
                     <li>
-                        Developed website content, marketing articles, and blogs
-                        for multiple clients.
+                        Developed website content, marketing articles and blogs for
+                        multiple clients.
                     </li>
-
                     <li>
-                        Translated stories from English to Bengali for a popular
-                        children's magazine.
+                        Translated stories from English to Bengali for a children's magazine.
                     </li>
-
                     <li>
-                        Translated website content and client documents from
-                        English to Bengali.
+                        Translated website content and client documents from English
+                        to Bengali.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>Content Writing</span>
-                    <span>Translation</span>
-                    <span>English–Bengali</span>
-                </div>
+                <ul class="job-tags">
+                    <li>Content writing</li>
+                    <li>Translation</li>
+                    <li>English and Bengali</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
 
-        <!-- FROST & SULLIVAN -->
-        <div class="experience-item">
-            <div class="experience-marker"></div>
+        <!-- FROST AND SULLIVAN -->
+        <article class="job">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
                         <h3>Sub-Editor</h3>
                         <h4>Frost &amp; Sullivan India Pvt. Ltd.</h4>
-                        <span class="experience-note">Kolkata</span>
+                        <span class="job-note">Kolkata</span>
                     </div>
-
-                    <span class="experience-date">Sep 2008 – Jun 2011</span>
+                    <span class="job-date">Sep 2008 &ndash; Jun 2011</span>
                 </div>
 
                 <ul>
                     <li>
-                        Edited <strong>market research reports, virtual brochures,
-                        and press releases</strong> for grammar, style, clarity,
-                        and consistency.
+                        Edited <strong>market research reports, virtual brochures and press
+                        releases</strong> for grammar, style, clarity and consistency.
                     </li>
-
                     <li>
-                        Edited research reports covering industries including
-                        Healthcare and Mobile.
+                        Edited research reports covering industries including Healthcare
+                        and Mobile.
                     </li>
-
                     <li>
-                        Verified consistency between data, charts, and
-                        accompanying content.
+                        Verified consistency between data, charts and accompanying content.
                     </li>
-
                     <li>
                         Conducted peer reviews to maintain editorial quality.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>Editorial Review</span>
-                    <span>Market Research</span>
-                    <span>Quality Assurance</span>
-                </div>
+                <ul class="job-tags">
+                    <li>Editorial review</li>
+                    <li>Market research</li>
+                    <li>Quality assurance</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
 
         <!-- COMPARE INFOBASE -->
-        <div class="experience-item">
-            <div class="experience-marker"></div>
+        <article class="job">
+            <div class="job-marker" aria-hidden="true"></div>
 
-            <div class="experience-card">
+            <div class="job-card">
 
-                <div class="experience-header">
+                <div class="job-head">
                     <div>
                         <h3>Knowledge Executive</h3>
                         <h4>Compare Infobase Ltd.</h4>
                     </div>
-
-                    <span class="experience-date">Feb 2007 – May 2008</span>
+                    <span class="job-date">Feb 2007 &ndash; May 2008</span>
                 </div>
 
                 <ul>
                     <li>
-                        Developed <strong>SEO-focused content</strong> on travel,
-                        sports, and other topics for in-house websites, including
-                        Maps of World and Maps of India.
+                        Developed <strong>SEO-focused content</strong> on travel, sports and
+                        other topics for in-house websites, including Maps of World and
+                        Maps of India.
                     </li>
                 </ul>
 
-                <div class="experience-tags">
-                    <span>SEO Content</span>
-                    <span>Web Content</span>
-                </div>
+                <ul class="job-tags">
+                    <li>SEO content</li>
+                    <li>Web content</li>
+                </ul>
 
             </div>
-        </div>
+        </article>
 
     </div>
+
 </section>
 
-<section id="contact">
-    <h2>Contact</h2>
 
-    <div class="card">
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section id="contact" class="reveal">
+
+    <div class="section-head">
+        <h2>Contact</h2>
+    </div>
+
+    <div class="contact-card">
+        <h3>Looking for a writer who asks the awkward questions early?</h3>
+
         <p>
-            I am open to opportunities involving technical writing,
-            documentation, editing, content strategy and related roles.
+            I am open to roles in technical writing, documentation, editing and
+            content strategy. Send a note and I will reply with samples relevant
+            to your product.
         </p>
 
-        <br>
-
-        <ul>
-<li><a href="mailto:mukherjee.dipanjan30@gmail.com">Email</a></li>
-<li><a href="https://www.linkedin.com/in/mdipanjan/" target="_blank">LinkedIn</a></li>
+        <ul class="contact-links">
+            <li><a href="mailto:mukherjee.dipanjan30@gmail.com">Email me</a></li>
+            <li><a href="https://www.linkedin.com/in/mdipanjan/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="Dipanjan_Mukherjee_Resume.pdf" download>Resume (PDF)</a></li>
         </ul>
     </div>
+
 </section>
+
+</main>
 
 <footer>
     <p>
-        © 2026 Dipanjan Mukherjee | Senior Technical Writer
+        &copy; <span id="year">2026</span> Dipanjan Mukherjee &nbsp;&middot;&nbsp;
+        <a href="mailto:mukherjee.dipanjan30@gmail.com">mukherjee.dipanjan30@gmail.com</a>
     </p>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function () {
+
+    "use strict";
+
+    /* ---------- Footer year ---------- */
+    var yearEl = document.getElementById("year");
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+
+    /* ---------- Mobile menu ---------- */
+    var toggle = document.getElementById("navToggle");
+    var links  = document.getElementById("navLinks");
+
+    function closeMenu() {
+        links.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+    }
+
+    toggle.addEventListener("click", function () {
+        var open = links.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+
+    links.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    /* ---------- Reading progress and back to top ---------- */
+    var fill  = document.getElementById("progressFill");
+    var toTop = document.getElementById("toTop");
+
+    function onScroll() {
+        var scrolled = window.scrollY;
+        var height = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = height > 0 ? (scrolled / height) * 100 : 0;
+
+        fill.style.width = pct + "%";
+        toTop.classList.toggle("is-visible", scrolled > 600);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    toTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ---------- Active nav link and section reveal ---------- */
+    var navAnchors = Array.prototype.slice.call(links.querySelectorAll("a"));
+
+    var sections = navAnchors
+        .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+        .filter(Boolean);
+
+    if ("IntersectionObserver" in window) {
+
+        var navObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) { return; }
+                navAnchors.forEach(function (a) {
+                    a.classList.toggle(
+                        "is-active",
+                        a.getAttribute("href") === "#" + entry.target.id
+                    );
+                });
+            });
+        }, { rootMargin: "-45% 0px -50% 0px" });
+
+        sections.forEach(function (s) { navObserver.observe(s); });
+
+        var revealObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        Array.prototype.forEach.call(
+            document.querySelectorAll(".reveal"),
+            function (el) { revealObserver.observe(el); }
+        );
+
+    } else {
+        Array.prototype.forEach.call(
+            document.querySelectorAll(".reveal"),
+            function (el) { el.classList.add("is-in"); }
+        );
+    }
+
+}());
+</script>
 
 </body>
 </html>
