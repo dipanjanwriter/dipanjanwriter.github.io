@@ -196,15 +196,19 @@ header.hero::before {
 /* ---------------------------------------------------------
    Hero role / lede carousel
 
-   Three slides (role + lede pair) auto-rotate every 4s.
-   The active slide sits in normal flow; the outgoing slide
-   is absolutely positioned over it and animates out to the
-   right while the incoming slide animates in from the left.
+   Three slides (role + lede pair) auto-rotate every 3s.
+   Slides are full-width, absolutely stacked panels inside an
+   overflow:hidden track. The incoming slide starts fully off
+   to the right (translateX(100%)) and the outgoing slide exits
+   fully to the left (translateX(-100%)) in the same duration,
+   so their edges stay touching the whole time and the text
+   never overlaps.
    --------------------------------------------------------- */
 
 .hero-carousel {
     position: relative;
     min-height: 190px;
+    overflow: hidden;
 }
 
 @media (max-width: 760px) {
@@ -218,32 +222,20 @@ header.hero::before {
     top: 0;
     left: 0;
     width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(0);
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
 }
 
 .hero-slide.is-active {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
     transform: translateX(0);
-    transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 .hero-slide.is-leaving {
-    position: absolute;
-    opacity: 0;
-    visibility: visible;
-    transform: translateX(60px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
+    transform: translateX(-100%);
 }
 
 .hero-slide.is-entering {
-    position: absolute;
-    opacity: 0;
-    visibility: visible;
-    transform: translateX(-60px);
+    transform: translateX(100%);
 }
 
 .hero-role {
@@ -538,10 +530,11 @@ section {
 }
 
 .about-intro h3 {
+    text-align: left;
     font-size: clamp(24px, 3.2vw, 31px);
     line-height: 1.3;
     margin-bottom: 20px;
-    max-width: 22ch;
+    max-width: 68ch;
 }
 
 .about-intro p {
@@ -2410,7 +2403,7 @@ footer a:hover {
         var dots   = Array.prototype.slice.call(document.querySelectorAll("#heroDots button"));
         var current = 0;
         var intervalId = null;
-        var intervalMs = 4000;
+        var intervalMs = 3000;
 
         function setDots(index) {
             dots.forEach(function (dot, i) {
@@ -2424,17 +2417,19 @@ footer a:hover {
             var outgoing = slides[current];
             var incoming = slides[nextIndex];
 
-            /* place incoming off-screen to the left, then let it transition in */
-            incoming.classList.add("is-entering");
+            /* park the incoming slide fully off-screen to the right, no transition */
             incoming.classList.remove("is-leaving", "is-active");
+            incoming.classList.add("is-entering");
 
             /* force layout so the entering position is applied before animating */
             void incoming.offsetWidth;
 
+            /* outgoing slides fully out to the left, incoming slides fully in from
+               the right, at the same speed, so their edges stay flush and the
+               text never overlaps */
             outgoing.classList.remove("is-active");
             outgoing.classList.add("is-leaving");
 
-            incoming.style.transition = "opacity 0.55s ease, transform 0.55s ease";
             incoming.classList.remove("is-entering");
             incoming.classList.add("is-active");
 
