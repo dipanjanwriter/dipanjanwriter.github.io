@@ -612,57 +612,79 @@ section {
 /* =========================================================
    EXPERTISE AND SKILLS
 
-   Core Expertise tiles: three per row, each one a square
-   card with a small category label, a title and a short
+   Core Expertise tiles: three compact dark tiles per row, each
+   with a small category label, a title and a short
    description stacked vertically.
    ========================================================= */
 
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 18px;
 }
 
+/* Dark tile, same look as the "Currently building" cards.
+   No fixed aspect ratio: height follows the text, so there is
+   very little empty space inside each tile. */
 .expertise-card {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    aspect-ratio: 1 / 1;              /* square tile; grows if the text needs more room */
-    background: var(--surface);
-    padding: 28px 26px;
-    border: 1px solid var(--line);
+    background: var(--ink);
+    padding: 22px 22px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.expertise-card::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 166, 166, 0.3), transparent 70%);
+    top: -75px;
+    right: -60px;
+    pointer-events: none;
 }
 
 .expertise-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: #9edede;
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 214, 214, 0.45);
 }
 
 .expertise-label {
+    position: relative;
+    z-index: 1;
     display: block;
     font-family: var(--mono-font);
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 14px;
+    color: var(--teal-light);
+    margin-bottom: 10px;
 }
 
 .expertise-card h3 {
-    font-size: 21px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
     line-height: 1.3;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .expertise-card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #62748a;
+    position: relative;
+    z-index: 1;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #c4d2e1;
 }
 
 .skills-band {
@@ -1411,7 +1433,7 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Core Expertise: two square tiles per row on tablets */
+    /* Core Expertise: two tiles per row on tablets */
     .expertise-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1513,9 +1535,6 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 
-    .expertise-card {
-        aspect-ratio: auto;
-    }
 }
 
 @media (max-width: 520px) {
@@ -1830,7 +1849,11 @@ footer a:hover {
                 Git, GitHub and Markdown for version-controlled documentation that
                 lives alongside the product it describes.
             </p>
-          </article>
+            <p class="learning-proof">
+                <!-- Replace with your own repository link -->
+                Sample: <a href="https://github.com/dipanjanwriter" target="_blank" rel="noopener">Docs repo on GitHub</a>
+            </p>
+        </article>
 
         <article class="learning-card">
             <span class="learning-status">Deepening</span>
