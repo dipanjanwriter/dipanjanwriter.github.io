@@ -53,6 +53,7 @@
     --body:       #4d5f72;
     --heading-font: "Spectral", Georgia, "Times New Roman", serif;
     --ui-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --mono-font: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     --radius: 16px;
     --shadow-sm: 0 4px 14px rgba(16, 36, 63, 0.05);
     --shadow-md: 0 12px 30px rgba(16, 36, 63, 0.09);
@@ -610,22 +611,26 @@ section {
 
 /* =========================================================
    EXPERTISE AND SKILLS
+
+   Core Expertise tiles: three per row, each one a square
+   card with a small category label, a title and a short
+   description stacked vertically.
    ========================================================= */
 
 .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .expertise-card {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    aspect-ratio: 1 / 1;              /* square tile; grows if the text needs more room */
     background: var(--surface);
-    padding: 30px;
+    padding: 28px 26px;
     border: 1px solid var(--line);
-    border-left: 4px solid var(--teal);
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -634,35 +639,30 @@ section {
 .expertise-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
-    border-color: var(--teal);
+    border-color: #9edede;
 }
 
-.expertise-badge {
-    flex-shrink: 0;
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: #eaf6f6;
+.expertise-label {
+    display: block;
+    font-family: var(--mono-font);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     color: var(--teal-deep);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--heading-font);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: 0.4px;
+    margin-bottom: 14px;
 }
 
 .expertise-card h3 {
-    font-size: 19px;
-    margin-bottom: 8px;
+    font-size: 21px;
+    line-height: 1.3;
+    margin-bottom: 12px;
 }
 
 .expertise-card p {
-    font-size: 14.5px;
+    font-size: 15px;
     line-height: 1.7;
     color: #62748a;
-    max-width: 48ch;
 }
 
 .skills-band {
@@ -1410,6 +1410,11 @@ footer a:hover {
     .learning-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Core Expertise: two square tiles per row on tablets */
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 860px) {
@@ -1457,7 +1462,6 @@ footer a:hover {
         padding: 32px 20px;
     }
 
-    .expertise-grid,
     .learning-grid {
         grid-template-columns: 1fr;
     }
@@ -1499,6 +1503,18 @@ footer a:hover {
 
     .sample-card.is-lead h3 {
         font-size: 21px;
+    }
+}
+
+/* Core Expertise: single column on phones; tiles size to their content */
+@media (max-width: 620px) {
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-card {
+        aspect-ratio: auto;
     }
 }
 
@@ -1706,67 +1722,57 @@ footer a:hover {
     <div class="expertise-grid">
 
         <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">TD</div>
-            <div>
-                <h3>Technical documentation</h3>
-                <p>
-                    User guides, installation guides, configuration guides,
-                    API references, release notes and online help.
-                </p>
-            </div>
+            <span class="expertise-label">Documentation</span>
+            <h3>Technical documentation</h3>
+            <p>
+                User guides, installation guides, configuration guides,
+                API references, release notes and online help.
+            </p>
         </article>
 
         <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">IA</div>
-            <div>
-                <h3>Information architecture</h3>
-                <p>
-                    Structuring complex product information into logical, reusable
-                    and scalable documentation systems.
-                </p>
-            </div>
+            <span class="expertise-label">Architecture</span>
+            <h3>Information architecture</h3>
+            <p>
+                Structuring complex product information into logical, reusable
+                and scalable documentation systems.
+            </p>
         </article>
 
         <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">SEO</div>
-            <div>
-                <h3>Content writing and editing</h3>
-                <p>
-                    Keyword-based web content, plus editorial review for clarity,
-                    consistency and adherence to style standards.
-                </p>
-            </div>
+            <span class="expertise-label">Content</span>
+            <h3>Content writing and editing</h3>
+            <p>
+                Keyword-based web content, plus editorial review for clarity,
+                consistency and adherence to style standards.
+            </p>
         </article>
 
         <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">AI</div>
-            <div>
-                <h3>AI-assisted documentation</h3>
-                <p>
-                    Creating AI-assisted workflows that speed up drafting and editorial checks while keeping technical accuracy.
-                </p>
-            </div>
+            <span class="expertise-label">AI &amp; Workflow</span>
+            <h3>AI-assisted documentation</h3>
+            <p>
+                Creating AI-assisted workflows that speed up drafting and editorial
+                checks while keeping technical accuracy.
+            </p>
         </article>
 
-      <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">SEO</div>
-            <div>
-                <h3>Knowledge Management</h3>
-                <p>
-                    Knowledge bases, FAQs, information architecture, content governance, 
-                    and documentation consistency.
-                </p>
-            </div>
+        <article class="expertise-card">
+            <span class="expertise-label">Knowledge</span>
+            <h3>Knowledge management</h3>
+            <p>
+                Knowledge bases, FAQs, information architecture, content governance,
+                and documentation consistency.
+            </p>
         </article>
 
-      <article class="expertise-card">
-            <div class="expertise-badge" aria-hidden="true">SEO</div>
-            <div>
-                <h3>Collaboration & Agile</h3>
-                <p>
-                    Working closely with developers, product managers and SMEs in Agile teams to deliver accurate documentation.
-                </p>
-            </div>
+        <article class="expertise-card">
+            <span class="expertise-label">Process</span>
+            <h3>Collaboration &amp; Agile</h3>
+            <p>
+                Working closely with developers, product managers and SMEs in Agile
+                teams to deliver accurate documentation.
+            </p>
         </article>
 
     </div>
@@ -1823,10 +1829,6 @@ footer a:hover {
             <p>
                 Git, GitHub and Markdown for version-controlled documentation that
                 lives alongside the product it describes.
-            </p>
-            <p class="learning-proof">
-                <!-- Replace with your own repository link -->
-                Sample: <a href="https://github.com/dipanjanwriter" target="_blank" rel="noopener">Docs repo on GitHub</a>
             </p>
         </article>
 
