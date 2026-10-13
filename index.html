@@ -208,13 +208,13 @@ header.hero::before {
 
 .hero-carousel {
     position: relative;
-    min-height: 190px;
+    min-height: 200px;
     overflow: hidden;
 }
 
 @media (max-width: 760px) {
     .hero-carousel {
-        min-height: 230px;
+        min-height: 255px;
     }
 }
 
@@ -614,12 +614,12 @@ section {
 /* =========================================================
    SERVICES
 
-   Compact tiles, laid out like the Core Expertise tiles
-   (small label, title, short description) but in a light
-   shade: white surface, teal accents. Four tiles per row on
-   desktop, two on tablets, one on phones.
+   Compact square-style tiles, following the same structure as
+   Core Expertise (small label, title, short description), but in
+   a light theme: white tiles with a soft teal glow, so the
+   section stays visually distinct from the dark expertise tiles.
+   Four tiles per row on desktop (8 services = two even rows).
    ========================================================= */
-
 #services {
     max-width: none;
     padding: 72px max(22px, calc((100% - var(--wrap)) / 2));
@@ -629,93 +629,78 @@ section {
     border-top: 1px solid #e7eef2;
     border-bottom: 1px solid #e7eef2;
 }
-
 #services .section-head {
     max-width: 760px;
     margin: 0 auto 34px;
     text-align: center;
 }
-
 #services .section-head h2::after {
     left: 50%;
     transform: translateX(-50%);
 }
-
 #services .section-head p {
     max-width: 66ch;
     margin: 0 auto;
 }
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
+    gap: 16px;
     max-width: var(--wrap);
     margin: 0 auto;
 }
-
 .service-card {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 22px 22px 24px;
-    background: var(--surface);
-    border: 1px solid #e0e9ee;
+    padding: 22px 20px 24px;
+    background: #ffffff;
+    border: 1px solid #dde7ed;
     border-top: 3px solid var(--teal);
     border-radius: var(--radius);
-    box-shadow: 0 6px 20px rgba(16, 36, 63, 0.05);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 6px 18px rgba(16,36,63,.05);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
-
+/* soft teal glow in the corner, echoing the Core Expertise tiles */
 .service-card::before {
     content: "";
     position: absolute;
+    z-index: -1;
     width: 150px;
     height: 150px;
-    right: -70px;
-    top: -75px;
+    top: -70px;
+    right: -60px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 166, 166, 0.16), transparent 70%);
     pointer-events: none;
 }
-
 .service-card:hover {
     transform: translateY(-5px);
     border-color: #9bdcda;
-    border-top-color: var(--teal);
-    box-shadow: 0 18px 34px rgba(16, 36, 63, 0.10);
+    box-shadow: 0 16px 32px rgba(16,36,63,.11);
 }
-
 .service-label {
-    position: relative;
-    z-index: 1;
     display: block;
     font-family: var(--mono-font);
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--teal-deep);
     margin-bottom: 10px;
 }
-
 .service-card h3 {
-    position: relative;
-    z-index: 1;
-    font-size: 18.5px;
+    font-size: 18px;
     line-height: 1.3;
     margin-bottom: 8px;
 }
-
 .service-card p {
-    position: relative;
-    z-index: 1;
     font-size: 14px;
     line-height: 1.65;
     color: #607286;
 }
-
 .services-cta {
     max-width: var(--wrap);
     margin: 28px auto 0;
@@ -729,12 +714,7 @@ section {
     border-radius: 15px;
     box-shadow: var(--shadow-md);
 }
-
-.services-cta p {
-    color: #d7e4ef;
-    font-size: 14.5px;
-}
-
+.services-cta p { color: #d7e4ef; font-size: 14.5px; }
 .services-cta strong {
     display: block;
     color: #fff;
@@ -742,38 +722,17 @@ section {
     font-size: 21px;
     margin-bottom: 3px;
 }
-
-.services-cta .button {
-    flex-shrink: 0;
+.services-cta .button { flex-shrink: 0; }
+@media (max-width: 960px) {
+    .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-@media (max-width: 1000px) {
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
 @media (max-width: 760px) {
-    #services {
-        padding: 48px 20px;
-    }
-    .services-cta {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 24px;
-    }
+    #services { padding: 48px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-cta { align-items: flex-start; flex-direction: column; padding: 24px; }
 }
-
-@media (max-width: 620px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .service-card {
-        transition: none !important;
-    }
+    .service-card { transition: none !important; }
 }
 
 
@@ -1773,8 +1732,9 @@ footer a:hover {
             <div class="hero-slide" data-slide="0">
                 <p class="hero-role">Content Services Provider</p>
                 <p class="hero-lede">
-                    I provide Technical Writing, Content Writing, Content Strategy,
-                    and other relevant services to make your documentation tasks easier.
+                    Need technical writing, content writing, editing or related
+                    services? I deliver clear, accurate content that makes your
+                    documentation tasks easier. Let&rsquo;s connect and get started.
                 </p>
             </div>
 
@@ -1921,25 +1881,25 @@ footer a:hover {
         <article class="service-card">
             <span class="service-label">Documentation</span>
             <h3>Software Product Documentation</h3>
-            <p>User guides, installation and configuration guides, administrator documentation and online help, organised around real tasks so users get productive faster.</p>
+            <p>User guides, installation and configuration guides, administrator documentation and online help that make complex software easy to use.</p>
         </article>
 
         <article class="service-card">
-            <span class="service-label">Updates</span>
+            <span class="service-label">Releases</span>
             <h3>Release Notes and Product Updates</h3>
-            <p>Accurate, concise release notes that explain new features, enhancements, fixes and known issues in language customers actually understand.</p>
+            <p>Concise, customer-friendly notes on new features, enhancements, fixes and known issues, so every release is easy to understand.</p>
         </article>
 
         <article class="service-card">
-            <span class="service-label">Quality</span>
+            <span class="service-label">Editing</span>
             <h3>Editing and Documentation Quality Management</h3>
             <p>Editorial reviews for grammar, clarity, terminology, tone and style-guide compliance, backed by repeatable quality checks.</p>
         </article>
 
         <article class="service-card">
-            <span class="service-label">Audits</span>
+            <span class="service-label">Audit</span>
             <h3>Documentation Audits and Quality Improvements</h3>
-            <p>A close review of existing documentation to uncover gaps, outdated content, duplication and navigation problems, followed by practical fixes.</p>
+            <p>A close review of existing documentation to find gaps, outdated content, duplication and navigation issues, with clear fixes.</p>
         </article>
 
         <article class="service-card">
@@ -1951,19 +1911,19 @@ footer a:hover {
         <article class="service-card">
             <span class="service-label">Migration</span>
             <h3>Documentation Migration</h3>
-            <p>Moving content between formats, platforms or content systems while improving structure, consistency and findability.</p>
+            <p>Smooth moves between formats, platforms and content systems, with better structure, consistency and findability along the way.</p>
         </article>
 
         <article class="service-card">
             <span class="service-label">Web</span>
             <h3>Web Content Writing</h3>
-            <p>Audience-focused copy for product pages, service pages and landing pages that explains your offer clearly and prompts action.</p>
+            <p>Clear, audience-focused copy for product pages, service pages and landing pages that turns visitors into customers.</p>
         </article>
 
         <article class="service-card">
             <span class="service-label">Content</span>
             <h3>Content Writing &amp; Editing</h3>
-            <p>Search-aware articles, blogs and web pages, plus editing of existing content for clarity, structure, search intent and consistency, so it is easy to find, read and act on.</p>
+            <p>Search-aware articles, blogs and web pages, plus edits to existing content for readability, structure and keyword use, always useful first.</p>
         </article>
 
     </div>
