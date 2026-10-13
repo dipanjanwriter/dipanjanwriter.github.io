@@ -197,7 +197,7 @@ header.hero::before {
 /* ---------------------------------------------------------
    Hero role / lede carousel
 
-   Three slides (role + lede pair) auto-rotate every 3s.
+   Three slides (role + lede pair) auto-rotate every 4s.
    Slides are full-width, absolutely stacked panels inside an
    overflow:hidden track. The incoming slide starts fully off
    to the right (translateX(100%)) and the outgoing slide exits
@@ -224,7 +224,7 @@ header.hero::before {
     left: 0;
     width: 100%;
     transform: translateX(100%);
-    transition: transform 0.6s ease;
+    transition: transform 0.8s ease;
 }
 
 .hero-slide.is-active {
@@ -606,6 +606,130 @@ section {
     font-weight: 700;
     flex-shrink: 0;
     min-width: 40px;
+}
+
+
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+#services {
+    max-width: none;
+    padding: 72px max(22px, calc((100% - var(--wrap)) / 2));
+    background:
+        radial-gradient(circle at 8% 12%, rgba(0,166,166,.08), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f5f9fb 100%);
+    border-top: 1px solid #e7eef2;
+    border-bottom: 1px solid #e7eef2;
+}
+#services .section-head {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+#services .section-head h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+#services .section-head p {
+    max-width: 66ch;
+    margin: 0 auto;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    max-width: var(--wrap);
+    margin: 0 auto;
+}
+.service-card {
+    position: relative;
+    isolation: isolate;
+    min-height: 225px;
+    overflow: hidden;
+    padding: 27px 25px 25px;
+    background: rgba(255,255,255,.92);
+    border: 1px solid #e0e9ee;
+    border-radius: 17px;
+    box-shadow: 0 6px 20px rgba(16,36,63,.045);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.service-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 150px;
+    height: 150px;
+    right: -75px;
+    bottom: -90px;
+    border-radius: 50%;
+    background: rgba(0,166,166,.08);
+    transition: transform .3s ease;
+}
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #9bdcda;
+    box-shadow: 0 18px 34px rgba(16,36,63,.10);
+}
+.service-card:hover::after { transform: scale(1.45); }
+.service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 17px;
+    border-radius: 13px;
+    color: var(--teal-deep);
+    background: #e7f7f6;
+    border: 1px solid #cceceb;
+    font-size: 23px;
+    line-height: 1;
+}
+.service-card h3 {
+    font-size: 19px;
+    line-height: 1.35;
+    margin-bottom: 9px;
+}
+.service-card p {
+    font-size: 14px;
+    line-height: 1.72;
+    color: #607286;
+}
+.services-cta {
+    max-width: var(--wrap);
+    margin: 28px auto 0;
+    padding: 23px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: #fff;
+    background: var(--ink);
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+}
+.services-cta p { color: #d7e4ef; font-size: 14.5px; }
+.services-cta strong {
+    display: block;
+    color: #fff;
+    font-family: var(--heading-font);
+    font-size: 21px;
+    margin-bottom: 3px;
+}
+.services-cta .button { flex-shrink: 0; }
+@media (max-width: 960px) {
+    .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+    #services { padding: 48px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { min-height: auto; }
+    .services-cta { align-items: flex-start; flex-direction: column; padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .service-card, .service-card::after { transition: none !important; }
 }
 
 
@@ -1666,6 +1790,7 @@ footer a:hover {
 
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#learning">Learning</a></li>
             <li><a href="#tools">Tools</a></li>
@@ -1722,6 +1847,86 @@ footer a:hover {
             </ul>
         </aside>
 
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
+
+<section id="services" class="reveal">
+
+    <div class="section-head">
+        <h2>Services</h2>
+        <p>Clear, useful content that helps people understand your product, find the information they need, and take the next step with confidence.</p>
+    </div>
+
+    <div class="services-grid">
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">▤</span>
+            <h3>Software Product Documentation</h3>
+            <p>User guides, installation and configuration guides, administrator documentation, online help, and task-based product content that makes complex software easier to use.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">↗</span>
+            <h3>Release Notes and Product Updates</h3>
+            <p>Accurate, concise release notes and product updates that explain new features, enhancements, fixes, known issues, and changes in a customer-friendly way.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">✓</span>
+            <h3>Editing and Documentation Quality Management</h3>
+            <p>Editorial reviews for grammar, clarity, consistency, terminology, tone, and style-guide compliance, supported by repeatable quality checks.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">⌕</span>
+            <h3>Documentation Audits and Quality Improvements</h3>
+            <p>Reviews of existing documentation to identify gaps, outdated information, navigation issues, duplication, and opportunities to improve usability.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">✳</span>
+            <h3>AI-Assisted Documentation Support</h3>
+            <p>Practical AI-assisted workflows for first drafts, ticket analysis, editorial checks, and content consistency—with human review focused on accuracy and context.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">⇄</span>
+            <h3>Documentation Migration</h3>
+            <p>Help moving documentation between formats, platforms, or content systems while improving structure, consistency, findability, and maintainability.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">✎</span>
+            <h3>Web Content Writing</h3>
+            <p>Clear, audience-focused website copy for product pages, service pages, landing pages, and other digital experiences.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">⌁</span>
+            <h3>SEO Content Editing</h3>
+            <p>Editing existing web content to strengthen readability, structure, search intent alignment, keyword use, and on-page consistency without sacrificing usefulness.</p>
+        </article>
+
+        <article class="service-card">
+            <span class="service-icon" aria-hidden="true">◎</span>
+            <h3>SEO Content Writing</h3>
+            <p>Search-aware articles, blogs, and web pages built around audience needs, clear information structure, relevant keywords, and helpful content.</p>
+        </article>
+
+    </div>
+
+    <div class="services-cta">
+        <div>
+            <strong>Have a documentation or content project in mind?</strong>
+            <p>Let’s discuss the audience, the goals, and the content that will make the biggest difference.</p>
+        </div>
+        <a class="button button-primary" href="#contact">Discuss a project</a>
     </div>
 
 </section>
@@ -2452,7 +2657,7 @@ footer a:hover {
         var dots   = Array.prototype.slice.call(document.querySelectorAll("#heroDots button"));
         var current = 0;
         var intervalId = null;
-        var intervalMs = 3000;
+        var intervalMs = 4000;
 
         function setDots(index) {
             dots.forEach(function (dot, i) {
